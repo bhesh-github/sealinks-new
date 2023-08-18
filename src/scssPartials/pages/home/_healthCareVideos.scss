@@ -1,0 +1,211 @@
+@keyframes videoBlinkActive {
+  0% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+@keyframes videoBlinkInactive {
+  0% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.health-care-outer {
+  .health-care-videos {
+    margin-top: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 1196px;
+      height: 100%;
+      .heading-wrapper {
+        .quote {
+          text-align: center;
+          color: $primarySkyBlue;
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 26px;
+          letter-spacing: 0em;
+          text-align: center;
+        }
+      }
+      .heading {
+        text-transform: uppercase;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 42px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: $primaryDarkBlue;
+      }
+      .videos-wrapper {
+        margin-top: 2em;
+        width: 100%;
+        min-height: 366px;
+        min-height: 100%;
+        border-radius: 10px;
+        display: flex;
+        gap: 1em;
+        overflow: hidden;
+        .card-card {
+          position: relative;
+          .title {
+            position: absolute;
+            width: 164.04904174804688px;
+            top: 40px;
+            left: 36.65899658203125px;
+            color: #ffffff;
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0.30000001192092896px;
+            text-align: left;
+          }
+          .post-date-views-wrapper {
+            position: absolute;
+            // width: 137.47125244140625px;
+            top: 317px;
+            left: 36.65899658203125px;
+
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 12px;
+            letter-spacing: 0.5px;
+            text-align: left;
+            color: #ffffff;
+            display: flex;
+            gap: 10px;
+          }
+          .video-duration {
+            position: absolute;
+            width: 34.51947021484375px;
+            height: 10px;
+            top: 331px;
+            right: 2em;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 10px;
+            letter-spacing: 0.5px;
+            text-align: left;
+            color: #ffffff;
+          }
+        }
+        .video-card {
+          overflow: hidden;
+          cursor: pointer;
+          border-radius: 10px;
+          width: 25%;
+          height: 100%;
+
+          animation-name: videoBlinkInactive;
+          animation-duration: 0.5s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: 1;
+        }
+        .active-video-card {
+          // opacity: ;
+          overflow: hidden;
+          cursor: pointer;
+          border-radius: 10px;
+          opacity: 1;
+          width: 50%;
+          height: 100%;
+
+          animation-name: videoBlinkActive;
+          animation-duration: 0.5s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: 1;
+        }
+      }
+      .see-more-btn {
+        margin-top: 42px;
+        height: 45px;
+        padding: 13px 35px 13px 35px;
+        border-radius: 50px;
+        gap: 10px;
+        font-size: 16px;
+        color: $primaryDarkBlue;
+        background: #bfd2f8;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .video-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.421);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: 0.5s;
+  }
+  .video-wrapper {
+    position: fixed;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 940px;
+    height: 560px;
+    // height: max-content;
+    // width: max-content;
+    background-color: transparent;
+    .close-icon {
+      path {
+        fill: #fff;
+      }
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 1.7em;
+      right: 0.8em;
+      cursor: pointer;
+      &:hover {
+        path {
+          fill: $primaryYellow;
+        }
+      }
+    }
+    .play-icon {
+      path {
+        fill: #fff;
+      }
+      position: absolute;
+      cursor: pointer;
+      width: 37.91863250732422px;
+      height: 37.9566650390625px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

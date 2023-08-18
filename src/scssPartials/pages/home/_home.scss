@@ -1,0 +1,16 @@
+@import "./homeSlider";
+@import "./hiButtons";
+@import "./clinicalExcellence";
+@import "./healthPackages/healthPackages";
+@import "./whyChooseUs";
+@import "./messageFromDirector";
+@import "./ourAcademics";
+@import "./healthCareVideos";
+@import "./news/news";
+@import "./getInTouch";
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,164 @@
+@import "./getAQuote";
+.header {
+  .menu-items-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .top-bar-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      background-color: #1f2b6c;
+      .top-bar {
+        color: #fcfefe;
+        width: 1197px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .nav-item {
+          width: 254px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .item {
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 16px;
+            text-align: left;
+          }
+          .divider {
+            border: 1px solid #fcfefe;
+            color: #fcfefe;
+            height: 16px;
+          }
+        }
+        .social-links {
+          width: 128px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .icon {
+            cursor: pointer;
+            width: 16.66666603088379px;
+            height: 16.625px;
+            top: 1.666656494140625px;
+            left: 1.66668701171875px;
+          }
+          .divider {
+            color: #ffffffa9;
+            height: 12px;
+            border: 0.5px solid #fcfefea8;
+          }
+        }
+      }
+    }
+    .mid-bar-wrapper {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      .items-wrapper {
+        width: 1197px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .left-section {
+          width: 324px;
+          height: 65px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .nmc-logo {
+            width: 64px;
+            height: 65px;
+          }
+          .company-name {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #1f2b6c;
+          }
+        }
+        .btns-wrapper {
+          display: flex;
+          justify-content: space-between;
+          height: 45px;
+          top: 13px;
+          left: 788px;
+          gap: 12px;
+          .action-btn {
+            text-transform: capitalize;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #1f2b6c;
+            background: #bfd2f8;
+          }
+          .lab-btn {
+            width: Hug (157px);
+            height: Hug (45px);
+            padding: 13px 35px 13px 35px;
+            border-radius: 50px;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+          }
+          .appointment-btn {
+            width: Hug (240px);
+            height: Hug (45px);
+            padding: 13px 35px 13px 35px;
+            border-radius: 50px;
+            gap: 10px;
+
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: left;
+          }
+        }
+      }
+    }
+    .hr-line {
+      width: 1193px;
+      height: 1px;
+      background: #5b5b5b;
+    }
+    .bottom-bar {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      .nav-item-wrapper {
+        width: 745px;
+        height: 21px;
+        margin: 16px 0;
+        display: flex;
+        top: 98px;
+        left: 347px;
+        gap: 24px;
+        .nav-item {
+          cursor: pointer;
+          color: #1f2b6c;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: 0em;
+          text-align: left;
+        }
+        .active-item {
+          font-weight: 600;
+          color: #ffdd1c;
+        }
+      }
+    }
+  }
+}

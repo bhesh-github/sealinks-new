@@ -1,0 +1,61 @@
+.carousel-card {
+  //   display: flex;
+  // justify-content: space-between;
+  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  //   width: 100%;
+  .news-card {
+    background-color: #fff;
+    min-width: 486px;
+    border-radius: 5px;
+    min-height: 154px;
+    display: flex;
+    gap: 20px;
+    .card-img {
+      width: 160px;
+      height: 100%;
+    }
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .dates {
+        text-align: left;
+        color: $primarySkyBlue;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      .news-text {
+        text-align: left;
+        margin-top: 8px;
+        color: $primaryRavenBlack;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+      .views-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 22px;
+        gap: 5px;
+        .eye-icon {
+          width: 18.5px;
+          height: 18.5px;
+        }
+        .num {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 16px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: $primaryRavenBlack;
+        }
+      }
+    }
+  }
+}

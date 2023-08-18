@@ -1,0 +1,83 @@
+// --------text-area----------------------
+.css-xl375p {
+  width: 100% !important;
+}
+.css-xl375p {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+  font-size: 13.5px !important;
+  padding: 8px 10px !important;
+}
+//
+.MuiDialogContent-root {
+  padding: 10px 1em !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  font: none !important;
+  font-size: 13px !important;
+  padding: 10px 10px !important;
+}
+// .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+//   background-color: $primaryBlue !important;
+//   color: 1976d2;
+// }
+// --------------------------------------------------
+.get-a-quote-comp {
+  .button-wrapper {
+    position: relative;
+    // margin-left: auto;
+    // margin-right: 1.5em;
+    cursor: pointer;
+    .get-a-quote {
+      text-transform: capitalize;
+      font-size: 12.5px;
+      font-weight: 600;
+      // color: $primaryBlue;
+      padding: 5px 10px;
+      // border: 2px solid $primaryBlue;
+      font-size: 15px;
+      padding: 10px 15px;
+      // border: 3px solid $primaryBlue;
+    }
+
+    .tick-icon {
+      z-index: -1;
+      bottom: 0;
+      right: 0;
+      // color: $primaryYellow;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .form-wrapper {
+    .form {
+      height: max-content;
+      width: 500px;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1em;
+      .text-field {
+        width: 100%;
+        font-size: 10px;
+      }
+    }
+  }
+}
+// -----------action-btns-------------------
+.MuiDialogActions-root {
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    text-transform: capitalize !important;
+    font-size: 12.5px !important;
+    // font-weight: 600 !important;
+    color: #000 !important;
+    padding: 5px 10px !important;
+    border: 1px solid silver !important;
+  }
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root:hover {
+    border: 1px solid #000 !important;
+  }
+  #submit {
+    width: 100px !important;
+  }
+}

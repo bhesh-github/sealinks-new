@@ -1,0 +1,45 @@
+.hi-buttons-comp {
+  margin-top: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .btns-wrapper {
+    display: flex;
+    gap: 24.8px;
+    width: 1195.82px;
+    .hi-btn {
+      display: flex;
+      gap: 10px;
+      background: #bfd2f8;
+      box-shadow: 0px 4px 4px 0px #00000040;
+      border-radius: 10px;
+      width: 280.816px;
+      height: 89px;
+      .btn-icon {
+        width: 50.0010871887207px;
+        height: 49.60615158081055px;
+      }
+      .btn-text {
+        text-transform: capitalize;
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 15px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: $primaryRavenBlack;
+      }
+    }
+    .hi-btn:hover {
+      background-color: $primaryDarkBlue;
+      .btn-icon {
+        path {
+          fill: $primaryYellow;
+        }
+      }
+      .btn-text {
+        color: $primaryYellow;
+      }
+    }
+  }
+}
