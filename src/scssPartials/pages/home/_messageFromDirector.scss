@@ -1,12 +1,17 @@
 .message-from-director {
   margin-top: 56px;
   width: 100%;
-  height: 558px;
+  // height: 558px;
   padding: 64px 243px 64px 243px;
   background: #eaf1ff;
+  // height: 700px;
+  // height: max-content;
   .message-card {
-    width: 954px;
-    height: 430px;
+    // height: 900px;
+    // height: max-content;
+    height: 600px;
+    // width: 954px;
+    // height: 430px;
     .heading {
       text-transform: uppercase;
       font-size: 36px;
@@ -20,10 +25,15 @@
       }
     }
     .content-section {
+      height: max-content;
+      height: 600px;
+
       display: flex;
       gap: 40px;
-      align-items: center;
+      // align-items: center;
       margin-top: 36px;
+      height: max-content;
+      align-items: flex-end;
       .director-img-wrapper {
         position: relative;
         .director-img {
@@ -60,12 +70,102 @@
         }
       }
       .messages {
+        height: max-content;
         font-size: 13px;
         font-weight: 400;
         line-height: 15px;
         letter-spacing: 0em;
         text-align: left;
       }
+    }
+  }
+}
+
+//
+
+.message-carousel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  // height: 578px;
+  height: 800px;
+  height: max-content;
+
+  // -------------------------
+
+  // .carousel-arrow::before {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: red !important;
+  // }
+  // .carousel-prev::before{
+  //   background-color: blue;
+  // }
+  .custom-prev-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    // 
+    // left: -1.4em;
+    bottom: 0;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 0px 0px 10px;
+    background: rgba(252, 254, 254, 0.5);
+    .icon {
+      width: 25px;
+      height: 25px;
+      color: #000;
+    }
+  }
+  .custom-next-arrow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    // 
+    bottom: 0;
+    // right: -1.4em;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 0px 0px 10px 0px;
+    background: rgba(252, 254, 254, 0.5);
+    .icon {
+      width: 25px;
+      height: 25px;
+      color: #000;
+    }
+  }
+
+  .dots-indicator {
+    margin-top: -2em;
+    z-index: 99;
+    display: flex !important;
+    justify-content: center;
+    gap: 10px;
+    list-style-type: none;
+    li {
+      width: 18px;
+      height: 18px;
+      border-radius: 50px;
+      display: inline-block;
+      background-color: $primaryAccentBlue;
+      button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        color: transparent;
+        border: none;
+      }
+    }
+    li.carousel-dots-active {
+      background-color: $primaryDarkBlue;
     }
   }
 }
