@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/videos
-/src/components/pages/home/healthCareVideos/
+# /src/videos
+# /src/components/pages/home/healthCareVideos/
