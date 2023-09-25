@@ -1,0 +1,156 @@
+// --------------spinner----------------
+.spinner-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(192, 192, 192, 0.082);
+  justify-content: center;
+  align-items: center;
+}
+// -----------spinner end----------------
+
+.doctor-appointment-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+  .section-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 1197px;
+    margin: 80px 0;
+    .appointment-form {
+      border-radius: 20px;
+      border: 0.5px solid #6f6f6f;
+      width: 70%;
+      padding: 3.5em 2em;
+
+      .heading {
+        color: $primaryRavenBlack;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .doctor-infos {
+        color: $primaryRavenBlack;
+        margin-top: 1.5em;
+        .title {
+          font-size: 22px;
+          font-weight: 500;
+        }
+        .btns-cover {
+          display: grid;
+          column-gap: 1em;
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .select-btn-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin: 1em 0;
+          text-transform: capitalize;
+          row-gap: 0.5em;
+          .select-btn {
+            background-color: #fff;
+            border: 1px solid rgb(175, 175, 175);
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            color: grey;
+            text-transform: capitalize;
+            &:hover {
+              border: 1px solid #000;
+            }
+          }
+        }
+      }
+
+      .patient-infos {
+        background-color: $primaryLiteBlue;
+        margin-top: 2em;
+        border-radius: 20px;
+        padding: 2em;
+        .title {
+          font-size: 22px;
+          font-weight: 500;
+          margin-bottom: 1em;
+        }
+        .fields-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 1.2em;
+          .triple-inputs-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+            .input-and-label {
+              display: flex;
+              flex-direction: column;
+              gap: 5px;
+              .input-field {
+                background-color: #fff;
+                border: 1px solid rgb(231, 231, 231);
+                border-radius: 5px;
+                padding: 10px;
+                width: 100%;
+              }
+            }
+          }
+          .brief-input-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .textarea {
+              font-family: Roboto;
+              font-weight: 400;
+              background-color: #fff;
+              border: 1px solid rgb(231, 231, 231);
+              border-radius: 5px;
+              padding: 10px;
+              width: 100%;
+              max-width: 100%;
+              font-size: 14px;
+            }
+          }
+          .terms-and-conditions {
+            display: flex;
+            gap: 0.5em;
+            cursor: pointer;
+            .text-wrapper {
+              .highlight {
+                color: $primarySkyBlue;
+                &:hover {
+                  color: $primaryDarkBlue;
+                }
+              }
+            }
+          }
+          .choose-btn {
+            text-transform: capitalize;
+            margin-top: 1em;
+            width: 100%;
+            background-color: $primaryAccentBlue;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 40px;
+            letter-spacing: 0em;
+            text-align: center;
+            color: #1f2b6c;
+            width: 100%;
+            height: 64px;
+            padding: 12px 0px 12px 0px;
+            border-radius: 12px;
+            gap: 10px;
+            cursor: pointer;
+
+            &:hover {
+              color: $primaryYellow;
+              background-color: $primaryDarkBlue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+// @import "./videoCard";
+// @import "./activityContentPage";
+
+.video-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+  .section-wrapper {
+    width: 1284.5px;
+    padding: 0 45px;
+    margin: 5em;
+    .section-heading {
+      text-transform: capitalize;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0em;
+      color: $primaryDarkBlue;
+      margin-bottom: 1.5em;
+      .highlight {
+        color: $primarySkyBlue;
+      }
+      .underline-wrapper {
+        background-color: rgb(224, 224, 224);
+        width: 100%;
+        height: 1.5px;
+        display: flex;
+        .dark {
+          width: 75px;
+          background-color: $primarySkyBlue;
+        }
+      }
+    }
+    .cards-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2em;
+      // margin: 80px 0;
+      .react-player-wrapper {
+        position: relative;
+        width: 100%;
+        // height: 280px;
+        height: 100%;
+        .top-over-lay {
+          height: 100%;
+          width: 100%;
+          z-index: 2;
+          background-color: transparent;
+          position: absolute;
+          cursor: pointer;
+        }
+        .react-player {
+          width: 100%;
+          height: 270px !important;
+          background-color: rgb(233, 233, 233);
+          border-radius: 10px;
+          overflow: hidden;
+          &:hover {
+            .activities-card {
+              .card-image {
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+        @media screen and (max-width: 1109px) {
+          .react-player {
+            height: 240px !important;
+          }
+        }
+        @media screen and (max-width: 971px) {
+          .react-player {
+            height: 210px !important;
+          }
+        }
+        @media screen and (max-width: 890px) {
+          .react-player {
+            height: 190px !important;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 890px) {
+      .cards-wrapper {
+        gap: 1em;
+      }
+    }
+    @media screen and (max-width: 800px) {
+      .cards-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      .cards-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .section-wrapper {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .section-wrapper {
+    margin: 3em;
+
+      padding: 0 16px;
+    }
+  }
+}

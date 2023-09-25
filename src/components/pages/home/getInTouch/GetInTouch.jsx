@@ -4,8 +4,11 @@ import { ReactComponent as LocationIcon } from "../../../../images/home/getInTou
 import { ReactComponent as MailIcon } from "../../../../images/home/getInTouch/mail.svg";
 import { ReactComponent as PhoneIcon } from "../../../../images/home/getInTouch/phone.svg";
 import building from "../../../../images/home/getInTouch/building.png";
+import { useNavigate } from "react-router-dom";
 
 const GetInTouch = ({ boxDataList }) => {
+  const navigate = useNavigate();
+
   const iconList = {
     phone: <PhoneIcon className="icon" />,
     location: <LocationIcon className="icon" />,
@@ -25,7 +28,13 @@ const GetInTouch = ({ boxDataList }) => {
       } = item;
 
       return (
-        <div className="box" key={id}>
+        <div
+          className="box"
+          key={id}
+          onClick={() => {
+            navigate("contact-us");
+          }}
+        >
           <div className="content">
             {iconList[iconType]}
             <div className="title">{title}</div>
@@ -47,7 +56,11 @@ const GetInTouch = ({ boxDataList }) => {
         <span className="quote">Get in touch</span>
         <div className="contact">Contact</div>
       </div>
-      <div className="box-wrapper">{boxList && boxList}</div>
+      <div className="box-wrapper">
+        <div className="inner-box-wrapper">
+          <div className="griding">{boxList && boxList}</div>
+        </div>
+      </div>
     </div>
   );
 };

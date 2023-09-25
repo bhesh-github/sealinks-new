@@ -28,7 +28,7 @@ const MessageFromDirector = ({ carouselData }) => {
               />
             </div>
             <span
-              class="messages"
+              className="messages"
               dangerouslySetInnerHTML={{
                 __html: message && message,
               }}
@@ -39,7 +39,9 @@ const MessageFromDirector = ({ carouselData }) => {
     });
   return (
     <div className="message-from-director">
-      <MessageCarousel cardSlide={carouselCard} />
+      <div className="inner">
+        <MessageCarousel cardSlide={carouselCard} />
+      </div>
     </div>
   );
 };

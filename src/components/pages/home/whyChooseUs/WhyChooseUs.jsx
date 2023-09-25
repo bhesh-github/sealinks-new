@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowRightShort } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 import icon1 from "../../../../images/home/whyChooseUs/icons/icon1.png";
 import icon2 from "../../../../images/home/whyChooseUs/icons/icon2.png";
@@ -15,21 +16,25 @@ import NumberAnimation from "../../../forAll/NumberAnimation";
 const WhyChooseUs = ({ iconsDataList }) => {
   const [render, setRender] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleNumAnimation = async () => {
-    if (
-      document.getElementById("num_animation_wrapper").getBoundingClientRect()
-        .top <=
-        window.innerHeight - 20 &&
-      document.getElementById("num_animation_wrapper").getBoundingClientRect()
-        .top >=
-        window.innerHeight -
-          document
-            .getElementById("num_animation_wrapper")
-            .getBoundingClientRect().height
-    ) {
-      setRender(true);
+    const numAnimationWrapper = document.getElementById(
+      "num_animation_wrapper"
+    );
+    if (numAnimationWrapper) {
+      if (
+        numAnimationWrapper.getBoundingClientRect().top <=
+          window.innerHeight - 20 &&
+        numAnimationWrapper.getBoundingClientRect().top >=
+          window.innerHeight -
+            numAnimationWrapper.getBoundingClientRect().height
+      ) {
+        setRender(true);
+      }
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleNumAnimation);
   }, []);
@@ -74,12 +79,19 @@ const WhyChooseUs = ({ iconsDataList }) => {
           Nepal Medical College Teaching Hospital (NMCTH), has access to the
           main road through its main entrance on the southwest.
         </div>
-        <div className="learn-more-btn-wrapper">
+        <div
+          className="learn-more-btn-wrapper"
+          onClick={() => {
+            navigate("about-us");
+          }}
+        >
           <span className="btn-text">Learn More</span>
           <BsArrowRightShort className="right-arrow" />
         </div>
-        <div className="icons-wrapper" id="num_animation_wrapper">
-          {iconCardList && iconCardList}
+        <div className="icons-outer">
+          <div className="icons-wrapper" id="num_animation_wrapper">
+            {iconCardList && iconCardList}
+          </div>
         </div>
         <div
           className="group-photo-wrapper"

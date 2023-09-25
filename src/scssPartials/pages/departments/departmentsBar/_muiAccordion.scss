@@ -1,0 +1,71 @@
+.mui-accordion {
+  .css-1fjvggn-MuiPaper-root-MuiAccordion-root {
+    border: none;
+    width: 345px;
+    width: 100%;
+    border: 1px;
+  }
+  .css-uvvswg-MuiButtonBase-root-MuiAccordionSummary-root {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 0;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    &:hover {
+      background-color: $primaryLiteBlue;
+  }
+    .css-v84d5j-MuiSvgIcon-root {
+      display: none;
+    }
+    .indent-arrow {
+      margin-left: -1.1em;
+      width: 12px;
+      height: 12px;
+      transition: 0.5s;
+    }
+    .off-indent-arrow {
+      visibility: hidden;
+    }
+    .active-indent {
+      transform: rotate(90deg);
+    }
+    .css-1betqn-MuiAccordionSummary-content {
+      align-items: center;
+      gap: 1em;
+      .btn-icon {
+        color: #212124;
+        width: 37px;
+        height: 37px;
+      }
+    }
+  }
+  .active-btn {
+    background-color: $primaryLiteBlue;
+    color: $primarySkyBlue;
+    path {
+      fill: $primarySkyBlue;
+    }
+  }
+  .accordion-container {
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 2.5em;
+    .child-link {
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+      &:hover {
+        color: $primarySkyBlue;
+      }
+    }
+    .active-childlink {
+      color: $primarySkyBlue;
+    }
+  }
+  //
+}

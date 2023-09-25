@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Button from "@mui/material/Button";
 import ReactPlayer from "react-player";
+import { useNavigate } from "react-router-dom";
 
 import { ReactComponent as CloseIcon } from "../../../../images/home/healthCareVideos/close-icon.svg";
 import { ReactComponent as PlayIcon } from "../../../../images/home/healthCareVideos/playbutton.svg";
@@ -16,19 +17,24 @@ const HealthCareVideos = ({ videoList }) => {
     inActive: "video-card",
   });
   const [isOverlay, setOverlay] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState();
-  console.log("active link", activeVideo.videoLink);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [videoShortLoop, setVideoShortLoop] = useState(0);
 
+  const navigate = useNavigate();
   const playerRef = useRef();
+
+  useEffect(() => {
+    document.body.style.overflowY = isOverlay ? "hidden" : "scroll";
+
+    return () => {
+      document.body.style.overflowY = "scroll";
+    };
+  }, [isOverlay]);
+
   const restartVideo = React.useCallback(() => {
     const timeToStart = 0;
-    playerRef.current.seekTo(timeToStart, "seconds");
-  }, [playerRef.current]);
-
-  isOverlay
-    ? (document.body.style.overflowY = "hidden")
-    : (document.body.style.overflowY = "scroll");
+    playerRef.current.seekTo(timeToStart && timeToStart, "seconds");
+  }, [playerRef]);
 
   return (
     <div className="health-care-outer">
@@ -48,11 +54,12 @@ const HealthCareVideos = ({ videoList }) => {
                   postDate = "",
                   videoLink = "",
                 } = item;
-                console.log("video link", videoLink);
+
                 const receivedClass =
                   id === activeVideo.id
                     ? activeVideoClass.active
                     : activeVideoClass.inActive;
+
                 return (
                   <div
                     className={`${receivedClass} card-card`}
@@ -77,12 +84,16 @@ const HealthCareVideos = ({ videoList }) => {
                       ref={playerRef}
                       url={videoLink && videoLink}
                       className="react-player"
-                      volume="0"
-                      seekTo={videoShortLoop}
+                      volume={0}
                       muted={true}
-                      playing={false}
+                      playing={isVideoPlaying}
                       controls={false}
                       onDuration={() => {}}
+                      onPlay={() => {
+                        if (videoShortLoop > 0) {
+                          playerRef.current.seekTo(videoShortLoop);
+                        }
+                      }}
                       onProgress={(progress) => {
                         if (progress.playedSeconds > 7) {
                           restartVideo();
@@ -97,7 +108,45 @@ const HealthCareVideos = ({ videoList }) => {
                 );
               })}
           </div>
-          <Button className="see-more-btn">See More</Button>
+          <div className="mobile-video">
+            <ReactPlayer
+              ref={playerRef}
+              url={
+                videoList &&
+                videoList[0] &&
+                videoList[0].videoLink &&
+                videoList[0].videoLink
+              }
+              className="mobile-react-player"
+              volume={0}
+              muted={true}
+              playing={isVideoPlaying}
+              controls={false}
+              onDuration={() => {}}
+              onPlay={() => {
+                if (videoShortLoop > 0) {
+                  playerRef.current.seekTo(videoShortLoop);
+                }
+              }}
+              onProgress={(progress) => {
+                if (progress.playedSeconds > 7) {
+                  restartVideo();
+                }
+              }}
+              style={{
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+            />
+          </div>
+          <Button
+            className="see-more-btn"
+            onClick={() => {
+              navigate("video");
+            }}
+          >
+            See More
+          </Button>
         </div>
       </div>
       {isOverlay && (
@@ -110,13 +159,11 @@ const HealthCareVideos = ({ videoList }) => {
           ></div>
           <div className="video-wrapper">
             <ReactPlayer
-              // ref={playerRef}
               url={
                 activeVideo && activeVideo.videoLink && activeVideo.videoLink
               }
               className="react-player"
-              // volume="0"
-              // seekTo={videoShortLoop}
+              volume={0}
               muted={true}
               playing={true}
               controls={true}
@@ -128,6 +175,7 @@ const HealthCareVideos = ({ videoList }) => {
                 objectPosition: "center",
               }}
             />
+            {/* Your CloseIcon and PlayIcon components */}
             <CloseIcon
               className="close-icon"
               onClick={() => {
@@ -135,7 +183,12 @@ const HealthCareVideos = ({ videoList }) => {
               }}
             />
             {isVideoPlaying && (
-              <PlayIcon className="play-icon" onClick={isVideoPlaying(false)} />
+              <PlayIcon
+                className="play-icon"
+                onClick={() => {
+                  setIsVideoPlaying(false);
+                }}
+              />
             )}
           </div>
         </div>
@@ -158,18 +211,15 @@ HealthCareVideos.defaultProps = {
     {
       id: 2,
       title: "Tips From Dr. Sita",
-      postDate: "1 weeks ago",
+      postDate: "1 week ago",
       views: "50",
-
       videoLink: "https://youtu.be/3GCoYeyD4AY?si=SXH_7CD38mNnpTiG",
     },
     {
       id: 3,
       title: "Our students",
       views: "100",
-
       postDate: "3 weeks ago",
-
       videoLink: "https://youtu.be/PzIymcS5riY?si=AkfOXY_YgU1qMJOs",
     },
   ],

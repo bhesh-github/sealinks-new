@@ -1,0 +1,51 @@
+@import "./muiAccordion";
+
+// ----------------mui drawer--------------------
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  width: 350px;
+  .css-1hskriy {
+    width: 100%;
+  }
+}
+// ---------------end of drawer------------------
+.mui-drawer {
+  //   background-color: purple;
+  height: 100%;
+  .nav-item {
+    cursor: pointer;
+    &:hover {
+      color: $primaryYellow;
+    }
+  }
+  .name-logo-wrapper {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    .company-logo {
+      width: 55px;
+    }
+    .company-name {
+      font-size: 18px;
+      font-weight: 500;
+      color: $primaryDarkBlue;
+      cursor: context-menu;
+    }
+    .close-icon {
+      color: $primaryDarkBlue;
+      margin-left: auto;
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .nav-list-wrapper {
+    color: $primaryDarkBlue;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+    .nav-item {
+    }
+  }
+}

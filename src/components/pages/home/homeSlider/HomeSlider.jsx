@@ -3,8 +3,9 @@ import sliderImg1 from "../../../../images/home/sliderImages/slider-img-1.jpeg";
 import sliderImg2 from "../../../../images/home/sliderImages/slider-img-2.jpeg";
 import ReactResponsiveCarousel from "../../../forAll/ReactResponsiveCarousel";
 
+
 const Carousel = ({ imagesList }) => {
-  const [activeSlideBtn, setActiveSlideBtn] = useState(0);
+  // const [activeSlideBtn, setActiveSlideBtn] = useState(0);
 
   return (
     <div className="home-silder-comp">

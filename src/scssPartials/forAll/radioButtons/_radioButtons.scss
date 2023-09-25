@@ -1,0 +1,13 @@
+.radio-btns {
+  margin-top: -20px;
+  .btn-title {
+  }
+  .btns {
+    display: flex;
+    gap: 0.5em;
+    .radio-btn-wrapper {
+      display: flex;
+      gap: 0.2em;
+    }
+  }
+}

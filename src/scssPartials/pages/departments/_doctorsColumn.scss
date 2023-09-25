@@ -1,0 +1,191 @@
+.doctors-column {
+  .section-heading {
+    text-transform: capitalize;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    color: $primaryDarkBlue;
+    margin-top: 0.7em;
+    .highlight {
+      color: $primarySkyBlue;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .section-heading {
+      font-size: 27px;
+      line-height: 30px;
+    }
+  }
+  .floating-btn-row {
+    margin: 5px 0;
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 99;
+    top: 3em;
+  }
+  .doctors-card-wrapper {
+    width: auto;
+    display: grid;
+    gap: 1.5em;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 1.5em;
+    .doctor-card {
+      display: flex;
+      flex-direction: column;
+      row-gap: 5px;
+      align-items: center;
+      padding: 15px;
+      border-radius: 20px;
+      //   height: 300px;
+      //   width: 250px;
+      border: 0.5px solid #6f6f6f;
+      .card-image {
+        width: 100%;
+        max-height: 220px;
+        min-height: 220px;
+        border-radius: 20px;
+      }
+      @media screen and (max-width: 1211px) {
+        .card-image {
+          max-height: 180px;
+          min-height: 180px;
+        }
+      }
+      @media screen and (max-width: 1155px) {
+        .card-image {
+          max-height: 150px;
+          min-height: 150px;
+        }
+      }
+      .name {
+        text-align: center;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+
+      .appointment-btn {
+        width: 100%;
+        border-radius: 10px;
+        text-transform: capitalize;
+        color: $primaryDarkBlue;
+        padding: 12px;
+        background-color: $primaryAccentBlue;
+        &:hover {
+          color: $primaryYellow;
+          background-color: $primaryDarkBlue;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1119px) {
+    .doctors-card-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      .doctor-card {
+        .card-image {
+          max-height: 220px;
+          min-height: 220px;
+        }
+        @media screen and (max-width: 1000px) {
+          .card-image {
+            max-height: 180px;
+            min-height: 180px;
+          }
+        }
+        @media screen and (max-width: 930px) {
+          .card-image {
+            max-height: 150px;
+            min-height: 150px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .doctors-card-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      .doctor-card {
+        .card-image {
+          width: 100%;
+          max-height: 220px;
+          min-height: 220px;
+          border-radius: 20px;
+        }
+        @media screen and (max-width: 790px) {
+          .card-image {
+            max-height: 180px;
+            min-height: 180px;
+          }
+        }
+        @media screen and (max-width: 720px) {
+          .card-image {
+            max-height: 150px;
+            min-height: 150px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .doctors-card-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      .doctor-card {
+        .card-image {
+          width: 100%;
+          max-height: 220px;
+          min-height: 220px;
+          border-radius: 20px;
+        }
+        @media screen and (max-width: 600px) {
+          .card-image {
+            max-height: 180px;
+            min-height: 180px;
+          }
+        }
+        @media screen and (max-width: 470px) {
+          .card-image {
+            max-height: 150px;
+            min-height: 150px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .doctors-card-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.7em;
+      .doctor-card {
+        @media screen and (max-width: 400px) {
+          .card-image {
+            max-height: 140px;
+            min-height: 140px;
+          }
+        }
+        @media screen and (max-width: 370px) {
+          .card-image {
+            max-height: 120px;
+            min-height: 120px;
+          }
+        }
+        @media screen and (max-width: 350px) {
+          .card-image {
+            max-height: 100px;
+            min-height: 100px;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 325px) {
+    .doctors-card-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.4em;
+    }
+  }
+}

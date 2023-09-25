@@ -1,0 +1,72 @@
+@import "./activitiesCard";
+// @import "./activityContentPage";
+
+.activities-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+  .section-wrapper {
+    width: 1284.5px;
+    padding: 0 45px;
+    margin: 5em;
+    .section-heading {
+      width: 100%;
+      text-transform: capitalize;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0em;
+      color: $primaryDarkBlue;
+      margin-bottom: 1.5em;
+      .highlight {
+        color: $primarySkyBlue;
+      }
+      .underline-wrapper {
+        background-color: rgb(224, 224, 224);
+        width: 100%;
+        height: 1.5px;
+        display: flex;
+        .dark {
+          width: 75px;
+          background-color: $primarySkyBlue;
+        }
+      }
+    }
+    @media screen and (max-width: 525px) {
+      .section-heading {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 1em;
+      }
+    }
+    .cards-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2em;
+    }
+    @media screen and (max-width: 920px) {
+      .cards-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media screen and (max-width: 525px) {
+      .cards-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .section-wrapper {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .section-wrapper {
+      padding: 0 16px;
+      margin: 40px 0;
+    }
+  }
+}

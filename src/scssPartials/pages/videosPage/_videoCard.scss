@@ -1,0 +1,21 @@
+.card-wrapper {
+  cursor: pointer;
+  .activities-card {
+    // height: 270px;
+    background-color: $primaryLiteBlue;
+    border-radius: 10px;
+    overflow: hidden;
+    .card-image {
+      height: 100%;
+      width: 100%;
+      transition: 0.3s;
+    }
+  }
+  &:hover {
+    .activities-card {
+      .card-image {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

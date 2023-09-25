@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import nmcLogo from "../../images/forAll/nmcLogo.png";
 import SnackBar from "../forAll/SnackBar";
-import { ReactComponent as InstaIcon } from "../../images/footer/instaIcon.svg";
-import { ReactComponent as FbIcon } from "../../images/footer/fbIcon.svg";
-import { ReactComponent as LinkdenIcon } from "../../images/footer/linkdenIcon.svg";
-import { ReactComponent as SendArrow } from "../../images/footer/sendArrow.svg";
+import { useNavigate } from "react-router-dom";
+import { ReactComponent as InstaIcon } from "../../images/main/footer/instaIcon.svg";
+import { ReactComponent as FbIcon } from "../../images/main/footer/fbIcon.svg";
+import { ReactComponent as LinkdenIcon } from "../../images/main/footer/linkdenIcon.svg";
+import { ReactComponent as SendArrow } from "../../images/main/footer/sendArrow.svg";
+
 import ProgressIndicator from "../forAll/ProgressIndicator";
 
 const inputObj = {
@@ -16,11 +18,11 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   // const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate();
   // ------------------snackbar----------------------------
   const [snackBarState, setSnackBarState] = useState({
     open: false,
-    vertical: "bottom ",
+    vertical: "bottom",
     horizontal: "center",
   });
   const [alertMessage, setAlertMessage] = useState({
@@ -143,22 +145,26 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
               </div>
               <div className="brief">{introSection && introSection.text}</div>
             </div>
-            {
-              <div className="links-column">
-                <div className="title">
-                  {importantLinks && importantLinks.title}
-                </div>
-                <div className="list-wrapper">
-                  {importantLinks &&
-                    importantLinks.linkList &&
-                    importantLinks.linkList.map((linkName, idx) => (
-                      <div className="list-item" key={idx}>
-                        {linkName && linkName}
-                      </div>
-                    ))}
-                </div>
+            <div className="links-column">
+              <div className="title">
+                {importantLinks && importantLinks.title}
               </div>
-            }
+              <div className="list-wrapper">
+                {importantLinks &&
+                  importantLinks.linkList &&
+                  importantLinks.linkList.map((item, idx) => (
+                    <div
+                      className="list-item"
+                      key={idx}
+                      onClick={() => {
+                        navigate(`${item.navigateTo}`);
+                      }}
+                    >
+                      {item.linkName && item.linkName}
+                    </div>
+                  ))}
+              </div>
+            </div>
             <div className="contact-us-column">
               <div className="title">
                 {contactUs && contactUs.title && contactUs.title}
@@ -232,7 +238,18 @@ Footer.defaultProps = {
   },
   importantLinks: {
     title: "Important Links",
-    linkList: ["Appointment", "Doctors", "Services", "About Us"],
+    linkList: [
+      { linkName: "Appointment", navigateTo: "doctor-appointment/direct" },
+      {
+        linkName: "Doctors",
+        navigateTo: "departments/internal-Medicine-department/0/0",
+      },
+      {
+        linkName: "Services",
+        navigateTo: "services/medical-and-super-speciality-services/0/0",
+      },
+      { linkName: "About Us", navigateTo: "about-us" },
+    ],
   },
   contactUs: {
     title: "Contact Us",

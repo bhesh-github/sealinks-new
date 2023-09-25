@@ -4,6 +4,7 @@
   width: 370px;
   height: 550px;
   border-radius: 20px;
+  margin: 2px 0;
 }
 .pack-card {
   position: relative;
@@ -142,6 +143,78 @@
     }
   }
   &:hover {
-    background-color: #eaf0ff;
+    background-color: $primaryLiteBlue;
+  }
+}
+@media screen and (max-width: 1270px) {
+  .card {
+    width: 350px !important;
+    height: 530px !important;
+  }
+  .pack-card {
+    .caption-icon-wrapper {
+      .caption {
+        font-size: 25px;
+      }
+      .right-icon {
+        width: 23px;
+        height: 23px;
+      }
+    }
+    .pack-picture {
+      left: 10px;
+      width: 280px;
+    }
+  }
+  .no-picture {
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid #6f6f6f;
+    padding: 40px 24px 24px 24px;
+    transition: 1s;
+    .icon-head-wrapper {
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .heading {
+        font-weight: 500;
+        font-size: 25px;
+      }
+    }
+    .mid-wrapper {
+      margin-left: 16px;
+      margin-top: 32px;
+      width: 100%;
+      .quote {
+        font-size: 20px;
+      }
+      .get-list-wrapper {
+        gap: 25px;
+        margin-top: 26px;
+        .tick-text-wrapper {
+          gap: 8px;
+          .tick-icon {
+            width: 19px;
+            height: 19px;
+          }
+          .get-text {
+            font-size: 16.5px;
+          }
+        }
+      }
+      .divider-line {
+        border-top: 2px dashed #a9a9aa;
+        margin: 33px 0;
+        width: 90%;
+      }
+      .rate {
+        font-size: 29px;
+      }
+    }
+    .choose-btn {
+      font-size: 20px;
+      cursor: pointer;
+    }
   }
 }

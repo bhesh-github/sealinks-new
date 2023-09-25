@@ -4,10 +4,19 @@
   margin-top: 120px;
   width: 100%;
   .section-wrapper {
-    width: 1196px;
-    display: flex;
+    padding: 0 45px;
+    // background-color: red;
+    // width: 1241px;
+    width: 1284.5px;
+
+    // width: 1162px;
+
+    // display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 1em;
     .text-container {
-      width: 466px;
+      // width: 466px;
       display: flex;
       flex-direction: column;
       gap: 36px;
@@ -44,50 +53,81 @@
       }
     }
   }
-}
-
-.all-btns-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  width: 730px;
-  .all-btn {
-    display: flex;
-    justify-content: flex-start;
-    border: 1px solid #6f6f6f !important;
-    width: 345px;
-    height: 92px;
-    padding: 24px;
-    border-radius: 10px;
-    border: 1px;
-    gap: 40px;
-    .btn-icon {
-      color: #212124;
-      width: 50.001953125px;
-      height: 45.84782791137695px;
-    }
-    .btn-text {
-      text-transform: capitalize;
-      font-family: Roboto;
-      font-size: 14px;
-      font-weight: 700;
-      line-height: 16px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: $primaryRavenBlack;
+  @media screen and (max-width: 1285px) {
+    .section-wrapper {
+      width: 100%;
     }
   }
-  .all-btn:hover {
-    border: none;
-    background-color: $primaryDarkBlue;
-    .btn-text {
-      color: $primaryYellow;
+  @media screen and (max-width: 1117px) {
+    .section-wrapper {
+      padding: 0 45px;
+      grid-template-columns: 1fr;
+      gap: 2em;
     }
-    .btn-icon {
-      path {
-        fill: $primaryYellow;
+  }
+}
+@media screen and (max-width: 550px) {
+  .clinical-excellence-comp {
+    margin-top: 60px;
+    .section-wrapper {
+      padding: 0 16px;
+      .text-container {
+        gap: 20px;
+        .caption {
+          font-size: 27px;
+          font-weight: 700;
+        }
+        .quote {
+          font-size: 18px;
+          font-weight: 400;
+        }
       }
     }
   }
 }
+
+// .all-btns-wrapper {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   gap: 20px;
+//   width: 730px;
+//   .all-btn {
+//     display: flex;
+//     justify-content: flex-start;
+//     border: 1px solid #6f6f6f !important;
+//     width: 345px;
+//     height: 92px;
+//     padding: 24px;
+//     border-radius: 10px;
+//     border: 1px;
+//     gap: 40px;
+//     .btn-icon {
+//       color: #212124;
+//       width: 50.001953125px;
+//       height: 45.84782791137695px;
+//     }
+//     .btn-text {
+//       text-transform: capitalize;
+//       font-family: Roboto;
+//       font-size: 14px;
+//       font-weight: 700;
+//       line-height: 16px;
+//       letter-spacing: 0em;
+//       text-align: left;
+//       color: $primaryRavenBlack;
+//     }
+//   }
+//   .all-btn:hover {
+//     border: none;
+//     background-color: $primaryDarkBlue;
+//     .btn-text {
+//       color: $primaryYellow;
+//     }
+//     .btn-icon {
+//       path {
+//         fill: $primaryYellow;
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,70 @@
+// @import "./barButtons";
+// @import "./barButtons";
+@import './muiAccordion';
+
+.contents-bar {
+  height: max-content;
+  width: 370px;
+  border-radius: 20px;
+  display: flex;
+  row-gap: 1em;
+  flex-direction: column;
+  border: 0.5px solid #6f6f6f;
+  padding: 24px 24px 24px 24px;
+  .section-heading {
+    text-transform: capitalize;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+    height: 64px;
+    width: 100%;
+    padding: 13px 0px 12px 0px;
+    border-radius: 12px;
+    gap: 10px;
+    color: $primaryDarkBlue;
+    &:hover {
+      color: $primaryDarkBlue;
+      background-color: none;
+    }
+  }
+  .contents-wrapper {
+    // .all-btns-wrapper {
+    //   width: auto;
+    //   gap: 0;
+    //   row-gap: 0.7em;
+    //   margin: 0;
+    //   padding: 0;
+    //   .all-btn {
+    //     border: none !important;
+    //     height: 64px;
+    //     width: 345px;
+    //     gap: 20px;
+    //   }
+    //   .btn-icon {
+    //     color: #212124;
+    //     width: 35px;
+    //     height: 35px;
+    //   }
+    //   .btn-text {
+    //     font-size: 14px;
+    //     font-weight: 400;
+    //   }
+    //   .all-btn:hover {
+    //     border: none;
+    //     background-color: $primaryAccentBlue;
+
+    //     .btn-text {
+    //       color: $primaryDarkBlue;
+    //     }
+    //     .btn-icon {
+    //       path {
+    //         fill: $primaryDarkBlue;
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}

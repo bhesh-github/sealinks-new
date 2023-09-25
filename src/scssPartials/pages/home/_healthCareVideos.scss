@@ -34,6 +34,7 @@
 }
 
 .health-care-outer {
+  width: 100%;
   .health-care-videos {
     margin-top: 120px;
     width: 100%;
@@ -43,8 +44,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 1196px;
-      height: 100%;
+      width: 1284.5px;
+      padding: 0 45px;
       .heading-wrapper {
         .quote {
           text-align: center;
@@ -68,23 +69,15 @@
       .videos-wrapper {
         margin-top: 2em;
         width: 100%;
-        min-height: 366px;
-        // min-height: 100%;
         border-radius: 10px;
         display: flex;
         gap: 1em;
         overflow: hidden;
-
         .card-card {
           position: relative;
-          height: 100%;
           background-color: grey;
-          // min-height: 366px;
-          height: 100%;
-          // margin: 1em;
           position: relative;
           .top-over-lay {
-
             height: 100%;
             width: 100%;
             z-index: 2;
@@ -105,7 +98,6 @@
           }
           .post-date-views-wrapper {
             position: absolute;
-            // width: 137.47125244140625px;
             top: 317px;
             left: 36.65899658203125px;
 
@@ -137,26 +129,72 @@
           cursor: pointer;
           border-radius: 10px;
           width: 25%;
-          height: 100%;
-
           animation-name: videoBlinkInactive;
           animation-duration: 0.5s;
           animation-timing-function: ease-in-out;
           animation-iteration-count: 1;
         }
         .active-video-card {
-          // opacity: ;
           overflow: hidden;
           cursor: pointer;
           border-radius: 10px;
           opacity: 1;
           width: 50%;
-          height: 100%;
-
           animation-name: videoBlinkActive;
           animation-duration: 0.5s;
           animation-timing-function: ease-in-out;
           animation-iteration-count: 1;
+        }
+      }
+      @media screen and (max-width: 750px) {
+        .videos-wrapper {
+          display: none;
+        }
+      }
+      .mobile-video {
+        width: 100%;
+        margin-top: 1.2em;
+        border-radius: 10px !important;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        .mobile-react-player {
+          width: 100% !important;
+          border-radius: 10px !important;
+          height: 360px !important;
+        }
+        @media screen and (max-width: 618px) {
+          .mobile-react-player {
+            width: 100% !important;
+            border-radius: 10px !important;
+            height: 320px !important;
+          }
+        }
+        @media screen and (max-width: 540px) {
+          .mobile-react-player {
+            width: 100% !important;
+            border-radius: 10px !important;
+            height: 290px !important;
+          }
+        }
+        @media screen and (max-width: 440px) {
+          .mobile-react-player {
+            width: 100% !important;
+            border-radius: 10px !important;
+            height: 250px !important;
+          }
+        }
+        @media screen and (max-width: 400px) {
+          .mobile-react-player {
+            width: 100% !important;
+            border-radius: 10px !important;
+            height: 210px !important;
+          }
+        }
+      }
+      @media screen and (min-width: 750px) {
+        .mobile-video {
+          display: none;
         }
       }
       .see-more-btn {
@@ -171,8 +209,25 @@
         text-transform: capitalize;
       }
     }
+    @media screen and (max-width: 1285px) {
+      .content {
+        width: 100%;
+      }
+    }
   }
-
+  @media screen and (max-width: 550px) {
+    .health-care-videos {
+      margin-top: 0px;
+      .content {
+        padding: 0 16px;
+        .heading {
+          font-size: 27px !important;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+  // ------------overlay--------------
   .video-overlay {
     position: fixed;
     height: 100%;
@@ -205,11 +260,6 @@
       top: 1.7em;
       right: 0.8em;
       cursor: pointer;
-      &:hover {
-        path {
-          fill: $primaryYellow;
-        }
-      }
     }
     .play-icon {
       path {
@@ -225,3 +275,4 @@
     }
   }
 }
+// ---------end of overlay-----------

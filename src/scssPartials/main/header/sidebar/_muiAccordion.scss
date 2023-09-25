@@ -1,0 +1,168 @@
+.sidebar-accordion {
+  .css-1fjvggn-MuiPaper-root-MuiAccordion-root {
+    border: none;
+    width: 345px;
+    width: 100%;
+    border: 1px;
+  }
+  .css-uvvswg-MuiButtonBase-root-MuiAccordionSummary-root {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    .css-v84d5j-MuiSvgIcon-root {
+      display: none;
+    }
+    .indent-arrow {
+      margin-left: -1.1em;
+      width: 12px;
+      height: 12px;
+      transition: 0.1s;
+      color: #000;
+    }
+    .off-indent-arrow {
+      visibility: hidden;
+    }
+    .active-indent {
+      transform: rotate(90deg);
+    }
+    .css-1betqn-MuiAccordionSummary-content {
+      align-items: center;
+      gap: 1em;
+      .btn-icon {
+        color: #212124;
+        width: 37px;
+        height: 37px;
+      }
+    }
+    .sidebar-sublink {
+      cursor: pointer;
+      color: $primaryDarkBlue;
+      transition: 0.3s;
+      &:hover {
+        color: $primarySkyBlue;
+      }
+    }
+  }
+  .bar-btn {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1em;
+    cursor: context-menu !important ;
+    &:hover {
+      background-color: $primaryLiteBlue;
+    }
+    .sidebar-sublink {
+      width: 130px;
+      padding: 0 20px 0 0;
+      margin-right: auto;
+      //   cursor: pointer;
+    }
+    .indent-arrow {
+      width: 50px;
+      max-width: 50px;
+      height: 22px;
+      max-height: 22px;
+      padding: 4px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        path {
+          fill: $primarySkyBlue;
+        }
+      }
+    }
+  }
+  .active-btn {
+    background-color: $primaryLiteBlue;
+    path {
+      fill: $primarySkyBlue;
+    }
+    .sidebar-sublink {
+      color: $primarySkyBlue !important;
+    }
+  }
+
+  .subLink-accordion-container {
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    padding: 0;
+
+    .child-accordion {
+      .child-link-title-wrapper {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding-right: 1em;
+        cursor: context-menu !important ;
+        .child-title {
+          color: $primaryDarkBlue;
+          font-size: 13.5px !important;
+          margin-right: auto;
+          min-width: 200px;
+          max-width: 200px;
+          cursor: pointer;
+          &:hover {
+            color: $primarySkyBlue;
+          }
+        }
+
+        .indent-arrow {
+          cursor: pointer;
+          width: 50px;
+          max-width: 50px;
+          height: 22px;
+          max-height: 22px;
+          padding: 4px;
+          cursor: pointer;
+          transition: 0.5s;
+          &:hover {
+            path {
+              fill: $primarySkyBlue;
+            }
+          }
+        }
+        .off-indent-arrow {
+          visibility: hidden;
+        }
+        .active-indent {
+          transform: rotate(90deg);
+        }
+      }
+      .active-child-link-title-wrapper {
+        .child-title {
+          color: $primarySkyBlue;
+        }
+        .indent-arrow {
+          path {
+            fill: $primarySkyBlue;
+          }
+        }
+      }
+
+      .child-accordion-container {
+        padding-top: 15px;
+        padding-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .child-list {
+          padding-left: 2em;
+          width: 100%;
+          cursor: pointer;
+          font-size: 12.5px;
+          &:hover {
+            color: $primarySkyBlue;
+          }
+        }
+      }
+    }
+  }
+}

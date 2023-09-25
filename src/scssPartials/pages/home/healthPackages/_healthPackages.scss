@@ -7,8 +7,11 @@
   display: flex;
   justify-content: center;
   padding-bottom: 58px;
+  height: max-content;
   .content {
-    width: 1196px;
+    width: 1284.5px;
+    padding: 0 45px;
+    height: max-content;
     .heading-wrapper {
       .quote {
         color: #159eec;
@@ -30,6 +33,7 @@
       }
     }
     .health-packs-carousel {
+      height: 100%;
       .custom-dot-list-style {
         position: absolute;
       }
@@ -46,6 +50,37 @@
       }
       .active-dot {
         color: $primaryDarkBlue;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      .health-packs-carousel {
+        .custom-dot-list-style {
+          bottom: 0.5em;
+        }
+        .custom-dot {
+          width: 20px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .content {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .health-packages-comp {
+    margin-top: 60px;
+    .content {
+      padding: 0 16px;
+      .heading-wrapper {
+        .quote {
+          font-size: 20px;
+        }
+        .heading {
+          font-size: 27px;
+        }
       }
     }
   }

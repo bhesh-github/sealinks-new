@@ -1,5 +1,7 @@
 $primaryDarkBlue: #1f2b6c;
 $primarySkyBlue: #159eec;
+$primaryLiteBlue: #eaf0ff;
+
 $primaryAccentBlue: #bfd2f8;
 $primaryYellow: #ffdd1c;
 $primaryOffWhite: #fcfefe;
@@ -16,7 +18,28 @@ body {
 }
 
 @import "./scssPartials/main/header/header";
-@import "./scssPartials/pages/home/home";
-@import "./scssPartials/forAll/primaryButton";
 @import "./scssPartials/main/footer";
+
+@import "./scssPartials/pages/home/home";
+@import "./scssPartials/forAll/radioButtons/radioButtons";
+@import "./scssPartials/forAll/innerBanner.scss";
+@import "./scssPartials/forAll/primaryButton";
 @import "./scssPartials/forAll/snackBar";
+@import "./scssPartials/forAll/clinicalExcellenceBtns/allButtons";
+@import "./scssPartials/forAll/datePicker/datePiker";
+@import "./scssPartials/forAll/relatedBar/sectionsBar";
+@import "./scssPartials/forAll/floatingLinkBtn";
+
+@import "./scssPartials/pages/departments/department";
+@import "./scssPartials/pages/about/aboutUs";
+@import "./scssPartials/pages/services/services";
+@import "./scssPartials/pages/activities/activities";
+@import "./scssPartials/pages/activities/activityContentPage/activityContentPage";
+@import "./scssPartials/pages/research/research";
+@import "./scssPartials/pages/newsAndNotice/newsAndNotice";
+@import "./scssPartials/pages/career/career";
+@import "./scssPartials/pages/career/careerDetail/careerDetail";
+@import "./scssPartials/pages/videosPage/videoPage";
+@import "./scssPartials/pages/contact/contact";
+@import "./scssPartials/pages/notFoundPage/notFoundPage";
+@import "./scssPartials/pages/fallbackIndicator/fallbackIndicator";

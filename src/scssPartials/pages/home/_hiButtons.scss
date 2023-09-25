@@ -6,8 +6,10 @@
   .btns-wrapper {
     display: flex;
     gap: 24.8px;
-    width: 1195.82px;
+    width: 1284.5px;
+    padding: 0 45px;
     .hi-btn {
+
       display: flex;
       gap: 10px;
       background: #bfd2f8;
@@ -39,6 +41,61 @@
       }
       .btn-text {
         color: $primaryYellow;
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .btns-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      .hi-btn {
+        width: auto;
+      }
+    }
+  }
+  @media screen and (max-width: 1145px) {
+    .btns-wrapper {
+      .hi-btn {
+        height: 75px;
+      }
+    }
+  }
+  @media screen and (max-width: 965px) {
+    .btns-wrapper {
+      .hi-btn {
+        height: 70px;
+        .btn-icon {
+          width: 30px;
+          height: 30px;
+        }
+        .btn-text {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 830px) {
+    .btns-wrapper {
+      gap: 15px;
+      .hi-btn {
+        height: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .btns-wrapper {
+      gap: 15px;
+      padding: 0 16px;
+      .hi-btn {
+        height: 50px;
+        .btn-icon {
+          width: 25px;
+          height: 25px;
+        }
+        .btn-text {
+          font-size: 10px;
+        }
       }
     }
   }

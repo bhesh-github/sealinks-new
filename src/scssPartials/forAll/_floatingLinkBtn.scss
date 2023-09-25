@@ -1,0 +1,26 @@
+//
+.css-1b0ve20 > :not(style) {
+  margin: 0 !important;
+}
+//
+.floating-link-btn {
+  display: none;
+  .link-icon-wrapper {
+    background-color: $primarySkyBlue;
+    transition: 0.5s;
+    padding: 0 !important;
+    .link-icon {
+      width: 23px;
+      height: 23px;
+      color: #fff;
+    }
+    &:hover {
+      background-color: #128dd4;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .floating-link-btn {
+    display: block;
+  }
+}

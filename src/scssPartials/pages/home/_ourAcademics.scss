@@ -1,142 +1,281 @@
 .our-academics-comp {
-  margin-bottom: 5em;
-  width: 1196px;
-  height: 496px;
-  .content {
-    height: 100%;
-    width: 100%;
-    margin-top: 56px;
-    display: flex;
-    justify-content: space-between;
-    .academics-section {
-      width: 608px;
+  .our-academics-inner {
+    margin-bottom: 5em;
+    width: 1284.5px;
+    padding: 0 45px;
+    .content {
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      .title {
-        text-align: center;
-        color: $primaryDarkBlue;
-        font-size: 36px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        text-transform: uppercase;
-      }
-      .icons-wrapper {
+      width: 100%;
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 8em;
+      .academics-section {
+        width: 100%;
+        height: 100%;
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-between;
-        gap: 36px 90px;
-        .icon-badge {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 140px;
-          height: 129px;
-          padding: 10px 0;
-          border-radius: 10px;
-          gap: 4px;
-          border: 1px solid #6f6f6f;
-          .icon {
-            width: 74.65312194824219px;
-            height: 75px;
-          }
-          .text {
-            color: #1f2b6c;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 16px;
-            letter-spacing: 0em;
-            text-align: center;
-          }
+        .title {
+          text-align: center;
+          color: $primaryDarkBlue;
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-transform: uppercase;
         }
-        .icon-badge:hover {
-          cursor: pointer;
-          background-color: $primaryDarkBlue;
-          .icon {
-            path {
-              fill: $primaryYellow;
+        .icons-wrapper {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          // row-gap: 36px;
+          gap: 36px 90px;
+          .icon-badge {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 140px;
+            height: 129px;
+            padding: 10px 0;
+            border-radius: 10px;
+            gap: 4px;
+            border: 1px solid #6f6f6f;
+            .icon {
+              width: 74.65312194824219px;
+              height: 75px;
+            }
+            .text {
+              color: #1f2b6c;
+              font-size: 14px;
+              font-weight: 700;
+              line-height: 16px;
+              letter-spacing: 0em;
+              text-align: center;
             }
           }
-          .text {
+          @media screen and (max-width: 723px) {
+            .icon-badge {
+              width: 120px;
+              height: 109px;
+              .icon {
+                width: 45.65312194824219px;
+                height: 45px;
+              }
+            }
+          }
+          @media screen and (max-width: 670px) {
+            .icon-badge {
+              width: 100px;
+              height: 89px;
+              padding: 5px 0;
+              .icon {
+                width: 30.65312194824219px;
+                height: 30px;
+              }
+              .text {
+                color: #1f2b6c;
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 16px;
+              }
+            }
+          }
+          .icon-badge:hover {
+            cursor: pointer;
+            background-color: $primaryDarkBlue;
+            .icon {
+              path {
+                fill: $primaryYellow;
+              }
+            }
+            .text {
+              color: $primaryYellow;
+            }
+          }
+        }
+
+        @media screen and (max-width: 1188px) {
+          .icons-wrapper {
+            gap: 36px 60px;
+          }
+          .contact-info {
+            width: 100%;
+          }
+          .contact-info {
+            width: 100%;
+            font-size: 16px;
+            .phone-wrapper {
+              gap: 8px;
+              .phone-icon {
+                width: 25px;
+                height: 25px;
+              }
+            }
+          }
+        }
+        @media screen and (max-width: 1060px) {
+          .icons-wrapper {
+            gap: 36px 115px;
+          }
+        }
+        @media screen and (max-width: 996px) {
+          .icons-wrapper {
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+        .contact-info {
+          width: 609px;
+          height: 67px;
+          border-radius: 10px;
+          background-image: linear-gradient(90deg, #1f2b6c 0%, #3a4ba7 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #fff;
+          gap: 39px;
+          font-size: 22px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          .phone-wrapper {
             color: $primaryYellow;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            .phone-icon {
+              width: 30px;
+              height: 30px;
+            }
           }
         }
       }
-      .contact-info {
-        width: 609px;
-        height: 67px;
-        border-radius: 10px;
-        background-image: linear-gradient(90deg, #1f2b6c 0%, #3a4ba7 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        gap: 39px;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        .phone-wrapper {
-          color: $primaryYellow;
+      @media screen and (max-width: 1188px) {
+        .academics-section {
+          flex-direction: column;
           display: flex;
+          justify-content: center;
           align-items: center;
-          gap: 14px;
-          .phone-icon {
-            width: 30px;
-            height: 30px;
+          gap: 2em;
+          .icons-wrapper {
+            width: 100%;
+            width: max-content;
+            display: grid;
+          }
+          .contact-info {
+            width: 100%;
+            gap: 5px !important;
+            font-size: 15px;
+            .phone-wrapper {
+              .phone-icon {
+                width: 25px;
+                height: 25px;
+              }
+            }
+          }
+          @media screen and (max-width: 670px) {
+            .icons-wrapper {
+              gap: 36px 80px;
+            }
+            .contact-info {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              gap: 18px;
+              font-size: 15px;
+              font-weight: 400;
+              .phone-wrapper {
+                gap: 5px;
+                .phone-icon {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+          @media screen and (max-width: 555px) {
+            .icons-wrapper {
+              gap: 36px 40px;
+            }
+          }
+          @media screen and (max-width: 475px) {
+            .icons-wrapper {
+              gap: 15px;
+            }
+          }
+        }
+      }
+      .pic-wrapper {
+        width: 100%;
+        overflow: visible;
+        position: relative;
+        .pic {
+          width: 100%;
+          height: 100%;
+        }
+        .overlay {
+          padding: 56px 55px;
+          border-radius: 10px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-image: linear-gradient(
+            180.1deg,
+            rgba(16, 26, 85, 0) 0.08%,
+            #040c34 99.92%
+          );
+          .text-n-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 36px;
+            height: 100%;
+            .texts {
+              color: $primaryYellow;
+              font-size: 36px;
+              font-weight: 700;
+              line-height: 42px;
+              text-align: left;
+              .our {
+                color: #fcfefe;
+              }
+            }
+            .download-btn {
+              margin-left: 10px;
+              width: 157px;
+              height: 45px;
+              border-radius: 50px;
+              background: $primaryAccentBlue;
+              color: $primaryDarkBlue;
+            }
+          }
+        }
+        @media screen and (max-width: 520px) {
+          .overlay {
+            padding: 30px;
           }
         }
       }
     }
-    .pic-wrapper {
-      overflow: visible;
-      position: relative;
-      width: 466px;
-      .pic {
-        width: 100%;
-        height: 100%;
+    @media screen and (max-width: 996px) {
+      .content {
+        grid-template-columns: 1fr;
       }
-      .overlay {
-        border-radius: 10px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background-image: linear-gradient(
-          180.1deg,
-          rgba(16, 26, 85, 0) 0.08%,
-          #040c34 99.92%
-        );
-        .texts {
-          color: $primaryYellow;
-          position: absolute;
-          width: 311.7882080078125px;
-          height: 84px;
-          top: 275px;
-          left: 55.07275390625px;
-          font-size: 36px;
-          font-weight: 700;
-          line-height: 42px;
-          letter-spacing: 0em;
-          text-align: left;
-          .our {
-            color: #fcfefe;
-          }
-        }
-        .download-btn {
-          width: 157px;
-          height: 45px;
-          top: 395px;
-          left: 65px;
-          padding: 13px 35px 13px 35px;
-          border-radius: 50px;
-          background: $primaryAccentBlue;
-          color: $primaryDarkBlue;
-        }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .our-academics-inner {
+      width: 100%;
+
+      .content {
+        gap: 3em;
+
+        // grid-template-columns: 1fr;
       }
     }
   }

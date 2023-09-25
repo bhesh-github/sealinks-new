@@ -1,8 +1,8 @@
 import React from "react";
 import { ReactComponent as EyeIcon } from "../../../../images/home/news/eyeIcon.svg";
 
-const NewsCard = ({ newsData  }) => {
-    const { id = "", images = "" } = newsData;
+const NewsCard = ({ newsData }) => {
+  const { id = "", images = "" } = newsData;
   return (
     <>
       <div className="carousel-card" key={id}>
@@ -32,7 +32,7 @@ const NewsCard = ({ newsData  }) => {
             </div>
           </div>
         </div>
-        <div className="news-card">
+        <div className="news-card news-to-hide">
           <img src={images[2]} alt="" className="card-img" />
           <div className="text-wrapper">
             <div className="dates">Monday 05, September 2021 | By Author</div>
@@ -45,7 +45,7 @@ const NewsCard = ({ newsData  }) => {
             </div>
           </div>
         </div>
-        <div className="news-card">
+        <div className="news-card news-to-hide">
           <img src={images[3]} alt="" className="card-img" />
           <div className="text-wrapper">
             <div className="dates">Monday 05, September 2021 | By Author</div>
@@ -59,7 +59,6 @@ const NewsCard = ({ newsData  }) => {
           </div>
         </div>
       </div>
-     
     </>
   );
 };

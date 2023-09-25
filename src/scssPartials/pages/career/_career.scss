@@ -1,0 +1,17 @@
+@import "./contentsColumn";
+@import './joinUsForm';
+
+.research {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 50px;
+  .section-wrapper {
+    display: grid;
+    grid-template-columns: 5fr 2.5fr;
+    column-gap: 2.8em;
+    margin: 80px 0;
+    width: 1197px;
+  }
+}
