@@ -11,6 +11,23 @@
     grid-template-columns: 5fr 1fr;
     column-gap: 2.8em;
     margin: 80px 0;
-    width: 1197px;
+    width: 1284.5px;
+    padding: 0 45px;
+  }
+  @media screen and (max-width: 1285px) {
+    .section-wrapper {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .section-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .section-wrapper {
+      padding: 0 16px;
+      margin: 40px 0;
+    }
   }
 }

@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { lazy } from "react";
 
-import { VscClose } from "react-icons/vsc";
+// import { VscClose } from "react-icons/vsc";
+const FloatingLinkBtn = lazy(() => import("../../forAll/FloatingLinkBtn"));
 
-const RightColumn = ({ currentContent, gallery }) => {
+const RightColumn = ({ currentContent, gallery, handleIsSectionBar }) => {
   // const [isSliderOverlay, setIsSliderOverlay] = useState(false);
-  const sectionName = `${currentContent.replaceAll("-", " ")}`;
+  // const sectionName = `${currentContent.replaceAll("-", " ")}`;
 
   // isSliderOverlay
   //   ? (document.body.style.overflowY = "hidden")
   //   : (document.body.style.overflowY = "scroll");
 
   return (
-    <div className="right-column">
+    <div className="contents-column">
       <div className="section-heading">
         <div className="highlight">
           {/* {sectionName && sectionName} */}
@@ -20,6 +22,11 @@ const RightColumn = ({ currentContent, gallery }) => {
         <div className="underline-wrapper">
           <span className="dark"></span>
         </div>
+      </div>
+      <div className="floating-btn-row">
+        <FloatingLinkBtn
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+        />
       </div>
       <div className="htmls" style={{ width: "100%", textAlign: "justify" }}>
         <div className="html-wrapper">
@@ -58,21 +65,24 @@ const RightColumn = ({ currentContent, gallery }) => {
               therapy is appropriate and effective. They review patient records,
               culture results, and diagnostic tests to guide treatment
               decisions.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong> Guideline Development and Implementation:</strong> The
               team is responsible for developing and implementing evidence-based
               guidelines and protocols for antimicrobial use in the ICU. These
               guidelines help standardize treatment approaches, promote best
               practices, and reduce unnecessary antibiotic use.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong> Education and Training: </strong>The AST educates ICU
               staff, including physicians, nurses, and pharmacists, on
               antimicrobial stewardship principles. This includes appropriate
               prescribing practices, the importance of de-escalation, and
               strategies for infection prevention.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong>Prospective Audit and Feedback: </strong>The team conducts
               prospective audits of antimicrobial prescriptions in the ICU. They
@@ -80,41 +90,47 @@ const RightColumn = ({ currentContent, gallery }) => {
               recommendations for adjustments to therapy when necessary. This
               process ensures that antibiotics are used judiciously and
               according to established guidelines.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong> De-Escalation and Streamlining:</strong> AST members work
               with ICU clinicians to assess whether the initial broad-spectrum
               antimicrobial therapy can be narrowed down or de-escalated based
               on culture results and clinical improvement. This practice helps
               reduce unnecessary exposure to powerful antibiotics.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong>Monitoring Resistance Patterns:</strong> The team closely
               monitors antimicrobial resistance patterns within the ICU. They
               analyze data on antibiotic susceptibility to identify trends and
               potential outbreaks, allowing for timely intervention and
               adjustments to treatment guidelines.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong> Antimicrobial Formulary Management:</strong> AST members
               collaborate with pharmacy services to maintain an updated
               formulary of antimicrobial agents in the ICU. They help select
               appropriate antibiotics, considering factors such as drug
               availability, cost, and local resistance patterns.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong>Reporting and Compliance:</strong> The team ensures
               compliance with antimicrobial stewardship programs and reports
               outcomes and performance metrics to hospital leadership. This
               helps demonstrate the program's impact on patient care and
               antimicrobial resistance rates.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong>Research and Innovation:</strong> Some ASTs engage in
               research activities to advance the field of antimicrobial
               stewardship, including studying new diagnostic methods, treatment
               strategies, and technologies to improve patient care.
-            </li><br />
+            </li>
+            <br />
             <li>
               <strong> Collaboration:</strong> Effective communication and
               collaboration among ICU healthcare providers, infectious disease

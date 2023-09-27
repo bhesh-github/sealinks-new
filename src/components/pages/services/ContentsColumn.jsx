@@ -1,10 +1,15 @@
 import React from "react";
+import { lazy } from "react";
+const FloatingLinkBtn = lazy(() => import("../../forAll/FloatingLinkBtn"));
 
 const ContentsColumn = ({
-  doctorsList,
   selectedContentDetail,
   servicesList,
+  handleIsSectionBar,
 }) => {
+
+
+  
   const selectedContent = `${
     selectedContentDetail &&
     selectedContentDetail.slugSubLink &&
@@ -39,6 +44,11 @@ const ContentsColumn = ({
     <div className="contents-column">
       <div className="section-heading">
         <span className="highlight">{selectedContent && selectedContent}</span>
+      </div>
+      <div className="floating-btn-row">
+        <FloatingLinkBtn
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+        />
       </div>
       <div className="contents-wrapper">
         <div

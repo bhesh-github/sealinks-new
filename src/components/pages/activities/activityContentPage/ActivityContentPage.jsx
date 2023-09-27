@@ -17,6 +17,16 @@ const ActivityContentPage = ({ relatedActivitiesList }) => {
       relatedActivitiesList[0].slug,
   });
 
+  const [isSectionBar, setIsSectionBar] = useState(false);
+
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
+
   const innerBannerInfo = {
     pageName: "Activities Content",
     // title: `${
@@ -33,12 +43,15 @@ const ActivityContentPage = ({ relatedActivitiesList }) => {
       <div className="section-wrapper">
         <ContentsColumn
           currentContent={selectedBtn && selectedBtn.slug && selectedBtn.slug}
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
         />
         <SectionsBar
           barHeader={barHeader}
           barDataList={relatedActivitiesList && relatedActivitiesList}
           selectedBtn={selectedBtn && selectedBtn}
           setSelectedBtn={setSelectedBtn && setSelectedBtn}
+          isSectionBar={isSectionBar && isSectionBar}
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
         />
       </div>
     </div>

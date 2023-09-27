@@ -7,20 +7,54 @@ const ContentsBar = ({
   allContentsList,
   selectedContentDetail,
   setSelectedContentDetail,
+  isSectionBar,
+  handleIsSectionBar,
 }) => {
   return (
-    <div className="contents-bar">
-      <div className="section-heading">Related Services</div>
-      <div className="contents-wrapper">
-        <MuiAccordion
-          allContentsList={allContentsList}
-          selectedContentDetail={selectedContentDetail && selectedContentDetail}
-          setSelectedContentDetail={
-            setSelectedContentDetail && setSelectedContentDetail
-          }
-        />
+    <>
+      <div className="contents-bar-desktop">
+        <div className="section-heading">Related Services</div>
+        <div className="contents-wrapper">
+          <MuiAccordion
+            accordionFor="desktop"
+            allContentsList={allContentsList}
+            selectedContentDetail={
+              selectedContentDetail && selectedContentDetail
+            }
+            setSelectedContentDetail={
+              setSelectedContentDetail && setSelectedContentDetail
+            }
+          />
+        </div>
       </div>
-    </div>
+      <div
+        className="contents-bar-outer"
+        style={{
+          display: !isSectionBar ? "none" : "",
+        }}
+      >
+        <div
+          className="contents-bar-mobile"
+          style={{
+            display: isSectionBar ? "block" : "none",
+          }}
+        >
+          <div className="section-heading">Related Services</div>
+          <div className="contents-wrapper">
+            <MuiAccordion
+              allContentsList={allContentsList}
+              selectedContentDetail={
+                selectedContentDetail && selectedContentDetail
+              }
+              setSelectedContentDetail={
+                setSelectedContentDetail && setSelectedContentDetail
+              }
+              handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 @import "./galleryCarousel";
 
 .right-column {
+  display: flex;
+  flex-direction: column;
   .section-heading {
     text-transform: capitalize;
     font-size: 36px;
@@ -8,7 +10,6 @@
     line-height: 42px;
     letter-spacing: 0em;
     color: $primaryDarkBlue;
-    // margin-bottom: 1.5em;
     .highlight {
       color: $primarySkyBlue;
     }
@@ -27,12 +28,17 @@
     margin: 5px 0;
     display: flex;
     justify-content: flex-end;
+    width: max-content;
+    align-self: flex-end;
     position: sticky;
     position: -webkit-sticky;
     z-index: 99;
     top: 3em;
+    right: 0;
   }
+
   .content-container {
+    margin-top: .5em;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -104,7 +110,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.701);
-
     position: fixed;
     z-index: 9999999;
     .btn-wrapper {
@@ -130,12 +135,12 @@
     }
   }
   .silder-comp {
+    padding:   0 1em;
     z-index: 99999999;
     display: flex;
     justify-content: flex-end;
     width: 70%;
     width: 1020px;
     height: max-content;
-    background-color: rgb(193, 193, 193);
   }
 }

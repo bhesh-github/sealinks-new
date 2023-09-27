@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { lazy } from "react";
-import SectionsBar from "../../forAll/relatedBar/SectionsBar";
 
 const ContentsColumn = lazy(() => import("./ContentsColumn"));
-const JoinUsForm = lazy(() => import("./JoinUsForm"));
+const JoinUsForm = lazy(() => import("./joinUsForm/JoinUsForm"));
+// const JoinUsFormMobile = lazy(() => import("./joinUsForm/JoinUsFormMobile"));
 
 const InnerBanner = lazy(() => import("../../forAll/InnerBanner"));
 
@@ -13,6 +13,15 @@ const Research = ({ relatedList }) => {
     slug: relatedList && relatedList[0] && relatedList[0].slug,
   });
 
+  const [isSectionBar, setIsSectionBar] = useState(false);
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
+
   const innerBannerInfo = {
     pageName: "Career",
     // title: `${
@@ -21,22 +30,32 @@ const Research = ({ relatedList }) => {
     //   selectedContentDetail.slugSublink.replace("-", " ")
     // }`,
   };
-  const barHeader = "Career";
+  // const barHeader = "Career";
+
+  // useEffect(() => {
+  //   isSectionBar === true
+  //     ? (document.body.style.overflowY = "hidden")
+  //     : (document.body.style.overflowY = "scroll");
+  // }, [isSectionBar]);
 
   return (
-    <div className="research">
+    <div className="career-page">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
-      <div className="section-wrapper">
+      <div className="r-wrapper">
         <ContentsColumn
           currentContent={selectedBtn && selectedBtn.slug && selectedBtn.slug}
+          handleIsSectionBar={handleIsSectionBar}
         />
-        {/* <SectionsBar
-          barHeader={barHeader}
-          barDataList={relatedList && relatedList}
-          selectedBtn={selectedBtn && selectedBtn}
-          setSelectedBtn={setSelectedBtn && setSelectedBtn}
-        /> */}
-        <JoinUsForm />
+        {/* <div> */}
+        <JoinUsForm
+          isSectionBar={isSectionBar}
+          handleIsSectionBar={handleIsSectionBar}
+        />
+        {/* <JoinUsFormMobile
+            isSectionBar={isSectionBar}
+            handleIsSectionBar={handleIsSectionBar}
+          /> */}
+        {/* </div> */}
       </div>
     </div>
   );

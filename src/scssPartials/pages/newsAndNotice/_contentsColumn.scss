@@ -1,19 +1,26 @@
 .contents-column {
-    width: 100%;
+  width: 100%;
   .section-heading {
     text-transform: capitalize;
-    font-size: 36px;
     font-weight: 700;
     line-height: 42px;
     letter-spacing: 0em;
     color: $primaryDarkBlue;
     margin-top: 0.7em;
     .highlight {
+      font-size: 36px;
       color: $primarySkyBlue;
     }
   }
-  .contents-wrapper {
-    margin-top: 1.5em;
-   
+  @media screen and (max-width: 550px) {
+    .section-heading {
+      .highlight {
+        font-size: 27px !important;
+      }
+    }
   }
+  // .contents-wrapper {
+  //   // margin-top: 1.5em;
+
+  // }
 }

@@ -90,7 +90,7 @@ const VideosPage = ({ videoList }) => {
               />
             </div>
           </div>
-          <div className="silder-comp">
+          <div className="silders-comp">
             <ReactPlayer
               ref={playerRef}
               url={activeVideo && activeVideo}
@@ -100,7 +100,7 @@ const VideosPage = ({ videoList }) => {
               playing={true}
               controls={true}
               onDuration={() => {}}
-              height="100%"
+              // height="100%"
               width="100%"
               style={{
                 objectFit: "cover",

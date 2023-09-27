@@ -1,5 +1,5 @@
 // --------------spinner----------------
-.spinner-wrapper{
+.spinner-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -18,19 +18,25 @@
   .section-wrapper {
     display: flex;
     justify-content: center;
-    width: 1197px;
+    width: 1284.5px;
+    padding: 0 45px;
     margin: 80px 0;
     .appointment-form {
       border-radius: 20px;
       border: 0.5px solid #6f6f6f;
       width: 70%;
+      width: 835px;
       padding: 3.5em 2em;
-
       .heading {
         color: $primaryRavenBlack;
         text-align: center;
         font-size: 30px;
         font-weight: 500;
+      }
+      @media screen and (max-width: 550px) {
+        .heading {
+          font-size: 25px;
+        }
       }
       .doctor-infos {
         color: $primaryRavenBlack;
@@ -43,6 +49,11 @@
           display: grid;
           column-gap: 1em;
           grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (max-width: 850px) {
+          .btns-cover {
+            grid-template-columns: repeat(1, 1fr);
+          }
         }
         .select-btn-wrapper {
           display: flex;
@@ -61,6 +72,11 @@
             &:hover {
               border: 1px solid #000;
             }
+          }
+        }
+        @media screen and (max-width: 850px) {
+          .select-btn-wrapper {
+            margin: 0.5em 0;
           }
         }
       }
@@ -94,6 +110,12 @@
                 padding: 10px;
                 width: 100%;
               }
+            }
+          }
+          @media screen and (max-width: 850px) {
+            .triple-inputs-wrapper {
+              //  / display: grid;
+              grid-template-columns: repeat(1, 1fr);
             }
           }
           .brief-input-wrapper {
@@ -151,6 +173,30 @@
           }
         }
       }
+      @media screen and (max-width: 700px) {
+        .patient-infos {
+          padding: 1.5em 1em 1em;
+        }
+      }
+    }
+    @media screen and (max-width: 700px) {
+      .appointment-form {
+        padding: 2.5em 1em 1em;
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .section-wrapper {
+      // background-color: blue;
+
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .section-wrapper {
+      // background-color: red;
+      padding: 0 16px;
+      margin: 40px 0;
     }
   }
 }

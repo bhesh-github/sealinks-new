@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { lazy } from "react";
-
+const FloatingLinkBtn = lazy(() => import("../../../forAll/FloatingLinkBtn"));
 // import { VscClose } from "react-icons/vsc";
 
-const RightColumn = ({ currentContent, vacancyList }) => {
-  const [isSliderOverlay, setIsSliderOverlay] = useState(false);
+const RightColumn = ({ handleIsSectionBar }) => {
+  // const [isSliderOverlay, setIsSliderOverlay] = useState(false);
   // const sectionName = `${currentContent.replaceAll("-", " ")}`;
 
-  isSliderOverlay
-    ? (document.body.style.overflowY = "hidden")
-    : (document.body.style.overflowY = "scroll");
+  // isSliderOverlay
+  //   ? (document.body.style.overflowY = "hidden")
+  //   : (document.body.style.overflowY = "scroll");
 
   return (
-    <div className="right-column">
+    <div className="contents-column">
       <div className="section-heading">
         <div className="highlight">Vacancy on Dentist</div>
         <div className="underline-wrapper">
           <span className="dark"></span>
         </div>
+      </div>
+      <div className="floating-btn-row">
+        <FloatingLinkBtn
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+        />
       </div>
       <div className="cards-wrapper">
         <div className="htmls" style={{ textAlign: "justify" }}>

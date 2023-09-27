@@ -18,11 +18,16 @@ const Services = () => {
     slugSubLinkId: Number(slugSubLinkId && slugSubLinkId),
     slugChildId: Number(slugChildId && slugChildId),
   });
-  
-
+  const [isSectionBar, setIsSectionBar] = useState(false);
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
 
   useEffect(() => {
-    // setSelectedDepartmentDetail(Number(slugId));
     setSelectedContentDetail((prev) => ({
       ...prev,
       slugSubLink: slugSubLink && slugSubLink,
@@ -33,12 +38,19 @@ const Services = () => {
 
   const innerBannerInfo = {
     pageName: "Services",
-    title: `${
-      selectedContentDetail &&
-      selectedContentDetail.slugSublink &&
-      selectedContentDetail.slugSublink.replace("-", " ")
-    }`,
+    // title: `${
+    //   selectedContentDetail &&
+    //   selectedContentDetail.slugSublink &&
+    //   selectedContentDetail.slugSublink.replace("-", " ")
+    // }`,
   };
+
+  useEffect(() => {
+    isSectionBar === true
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
+  }, [isSectionBar]);
+
   return (
     <div className="services-page">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
@@ -51,11 +63,12 @@ const Services = () => {
           setSelectedContentDetail={
             setSelectedContentDetail && setSelectedContentDetail
           }
+          isSectionBar={isSectionBar}
+          handleIsSectionBar={handleIsSectionBar}
         />
         <ContentsColumn
-          selectedContentDetail={
-            selectedContentDetail && selectedContentDetail
-          }
+          selectedContentDetail={selectedContentDetail && selectedContentDetail}
+          handleIsSectionBar={handleIsSectionBar}
         />
       </div>
     </div>

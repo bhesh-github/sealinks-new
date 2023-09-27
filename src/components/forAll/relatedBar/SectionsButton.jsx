@@ -113,7 +113,7 @@ const SectionsButton = ({
                           id: Number(id && id),
                           slug: slug,
                         }));
-                      handleIsSectionBar();
+                      handleIsSectionBar && handleIsSectionBar();
                     }}
                   >
                     {btnsIconList[iconType]}

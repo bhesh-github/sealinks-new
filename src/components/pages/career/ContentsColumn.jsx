@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { lazy } from "react";
 
 const VacancyCard = lazy(() => import("./VacancyCard"));
+const FloatingLinkBtn = lazy(() => import("../../forAll/FloatingLinkBtn"));
 
 // import { VscClose } from "react-icons/vsc";
 
-const RightColumn = ({ currentContent, vacancyList }) => {
+const RightColumn = ({ currentContent, vacancyList, handleIsSectionBar }) => {
   const [isSliderOverlay, setIsSliderOverlay] = useState(false);
   // const sectionName = `${currentContent.replaceAll("-", " ")}`;
 
@@ -21,10 +22,14 @@ const RightColumn = ({ currentContent, vacancyList }) => {
           <span className="dark"></span>
         </div>
       </div>
+      <div className="floating-btn-row">
+        <FloatingLinkBtn
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+        />
+      </div>
       <div className="cards-wrapper">
-        {vacancyList && vacancyList.map((item) => <VacancyCard item={item} />)}
-        
-        
+        {vacancyList &&
+          vacancyList.map((item) => <VacancyCard item={item} key={item.id} />)}
       </div>
     </div>
   );

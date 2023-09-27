@@ -7,39 +7,18 @@ const DepartmentsBar = ({
   // slugDepartment,
   // slugSubLinkId,
   // slugChildId,
+  isSectionBar,
   selectedDepartmentDetail,
   setSelectedDepartmentDetail,
-  isSectionBar,
   handleIsSectionBar,
 }) => {
   return (
-    <div className="departments-bar">
-      <div className="section-heading">Related Departments</div>
-      <div className="desktop-department-wrapper">
-        <MuiAccordion
-          accordionFor="desktop"
-          allBtnsList={allBtnsList}
-          selectedDepartmentDetail={
-            selectedDepartmentDetail && selectedDepartmentDetail
-          }
-          setSelectedDepartmentDetail={
-            setSelectedDepartmentDetail && setSelectedDepartmentDetail
-          }
-        />
-      </div>
-      <div
-        className="sections-bar-outer"
-        style={{
-          display: !isSectionBar ? "none" : "",
-        }}
-      >
-        <div
-          className="mobile-department-wrapper"
-          style={{
-            display: isSectionBar ? "block" : "none",
-          }}
-        >
+    <>
+      <div className="departments-bar">
+        <div className="section-heading">Related Departments</div>
+        <div className="department-wrapper">
           <MuiAccordion
+            accordionFor="desktop"
             allBtnsList={allBtnsList}
             selectedDepartmentDetail={
               selectedDepartmentDetail && selectedDepartmentDetail
@@ -47,11 +26,51 @@ const DepartmentsBar = ({
             setSelectedDepartmentDetail={
               setSelectedDepartmentDetail && setSelectedDepartmentDetail
             }
-            handleIsSectionBar={handleIsSectionBar}
           />
         </div>
       </div>
-    </div>
+      <div
+        className="bar-outer"
+        style={{
+          display: !isSectionBar ? "none" : "",
+        }}
+      >
+        <div
+          className="mobile-departments-bar"
+          style={{
+            display: isSectionBar ? "block" : "none",
+          }}
+        >
+          <div className="section-heading">Related Departments</div>
+          <div className="department-wrapper">
+            <MuiAccordion
+              allBtnsList={allBtnsList}
+              selectedDepartmentDetail={
+                selectedDepartmentDetail && selectedDepartmentDetail
+              }
+              setSelectedDepartmentDetail={
+                setSelectedDepartmentDetail && setSelectedDepartmentDetail
+              }
+              handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* <div
+        className="sections-bar-outer"
+        style={{
+          display: !isSectionBar ? "none" : "",
+        }}
+      >
+
+<div
+          className="mobile-department-wrapper"
+          style={{
+            display: isSectionBar ? "block" : "none",
+          }}
+        > */}
+    </>
   );
 };
 

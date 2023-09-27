@@ -246,10 +246,11 @@
     transform: translate(-50%, -50%);
     width: 940px;
     height: 560px;
+    padding: 0 1em;
     // height: max-content;
     // width: max-content;
     background-color: transparent;
-    background-color: rgb(229, 229, 229);
+
     .close-icon {
       path {
         fill: #fff;
@@ -274,5 +275,12 @@
       transform: translate(-50%, -50%);
     }
   }
+  @media screen and (max-width: 940px) {
+    .video-wrapper {
+      width: 100%;
+    }
+  }
+  
+ 
 }
 // ---------end of overlay-----------

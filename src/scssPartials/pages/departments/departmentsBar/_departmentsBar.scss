@@ -67,9 +67,123 @@
     }
   }
 }
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .departments-bar {
+    display: none;
+  }
+}
+// ------------------------------------------------------
+
+.bar-outer {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.135);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .mobile-departments-bar {
+    width: 370px;
+    border-radius: 20px;
+    display: flex;
+    row-gap: 1em;
+    flex-direction: column;
+    border: 0.5px solid #6f6f6f;
+    padding: 24px 24px 24px 24px;
+    //
+    height: 95%;
+    position: absolute;
+    left: 40px;
+    background-color: #fff;
+    overflow: auto;
+    // ------------------------------
+    transform: translateX(-150%);
+    @keyframes mobileDepartmentsBarSliding {
+      0% {
+        transform: translateX(-150%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    animation: 0.4s ease-in-out 0.2s 1 forwards mobileDepartmentsBarSliding;
+    .section-heading {
+      text-transform: capitalize;
+      width: 100%;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 40px;
+      letter-spacing: 0em;
+      text-align: center;
+      height: 64px;
+      width: 100%;
+      padding: 13px 0px 12px 0px;
+      border-radius: 12px;
+      gap: 10px;
+      color: $primaryDarkBlue;
+      &:hover {
+        color: $primaryDarkBlue;
+        background-color: none;
+      }
+    }
+    @media screen and (max-width: 550px) {
+      .section-heading {
+        font-size: 25px;
+      }
+    }
+    .department-wrapper {
+      .all-btns-wrapper {
+        width: auto;
+        gap: 0;
+        row-gap: 0.7em;
+        margin: 0;
+        padding: 0;
+        .all-btn {
+          border: none !important;
+          height: 64px;
+          width: 345px;
+          gap: 20px;
+        }
+        .btn-icon {
+          color: #212124;
+          width: 35px;
+          height: 35px;
+        }
+        .btn-text {
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .all-btn:hover {
+          border: none;
+          background-color: $primaryAccentBlue;
+
+          .btn-text {
+            color: $primaryDarkBlue;
+          }
+          .btn-icon {
+            path {
+              fill: $primaryDarkBlue;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .mobile-departments-bar {
+      width: 341px;
+      position: absolute;
+      padding: 10px 10px 25px;
+      left: 17px;
+      background-color: #fff;
+    }
+  }
+}
+@media screen and (min-width: 1000px) {
+  .bar-outer {
     display: none;
   }
 }

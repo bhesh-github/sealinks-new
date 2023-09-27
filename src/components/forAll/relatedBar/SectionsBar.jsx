@@ -9,13 +9,14 @@ const SectionsBar = ({
   isSectionBar,
   handleIsSectionBar,
 }) => {
+
   return (
     <>
       <div className="sections-bar-desktop">
         <div className="section-heading">Related {barHeader && barHeader}</div>
         <div className="sections-wrapper">
           <SectionsButton
-            buttonFor='desktop-bar'
+            buttonFor="desktop-bar"
             barDataList={barDataList && barDataList}
             selectedBtn={selectedBtn && selectedBtn}
             setSelectedBtn={setSelectedBtn && setSelectedBtn}

@@ -1,5 +1,12 @@
 @import "./packageCard";
 
+.react-multiple-carousel__arrow--right {
+  display: none;
+}
+.react-multiple-carousel__arrow--left {
+  display: none;
+}
+
 .health-packages-comp {
   position: relative;
   margin-top: 120px;

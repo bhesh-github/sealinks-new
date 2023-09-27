@@ -64,7 +64,7 @@ export default function CustomizedAccordions({
       {accordionFor === "desktop" ? (
         <div className="mui-accordion">
           {allBtnsList &&
-            allBtnsList.map((item, idx) => {
+            allBtnsList.map((item) => {
               const {
                 id = "",
                 text = "",
@@ -154,7 +154,7 @@ export default function CustomizedAccordions({
       ) : (
         <div className="mui-accordion">
           {allBtnsList &&
-            allBtnsList.map((item, idx) => {
+            allBtnsList.map((item) => {
               const {
                 id = "",
                 text = "",
@@ -191,7 +191,7 @@ export default function CustomizedAccordions({
                         slugSubLinkId: Number(id),
                         slugChildId: Number(childLink[0]?.id),
                       }));
-                      handleIsSectionBar();
+                      !childLink && handleIsSectionBar();
                     }}
                   >
                     {childLink ? (

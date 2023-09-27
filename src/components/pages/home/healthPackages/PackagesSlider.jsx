@@ -112,6 +112,7 @@ const PackagesSlider = ({ packDataList }) => {
         containerClass="carousel-container"
         slidesToSlide={slidesToShow}
         customDot={<CustomDot />}
+        removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {packDataList &&
           packDataList.map((item, idx) => (

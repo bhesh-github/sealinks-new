@@ -86,7 +86,9 @@ const Header = ({ navItems }) => {
                 <Button
                   className="action-btn appointment-btn"
                   onClick={() => {
-                    navigate("./doctor-appointment/direct");
+                    setTimeout(() => {
+                      navigate("./doctor-appointment/direct");
+                    }, 250);
                   }}
                 >
                   Book an Appointment

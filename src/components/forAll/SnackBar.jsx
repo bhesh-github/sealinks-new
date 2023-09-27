@@ -21,6 +21,7 @@ export default function PositionedSnackbar({
         onClose={handleClose}
         message={alertMessage && alertMessage.successMessage}
         key={vertical + horizontal}
+        style={{ width: "max-content" }}
       />
     </Box>
   );

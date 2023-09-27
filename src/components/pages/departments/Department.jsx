@@ -46,6 +46,12 @@ const Department = () => {
       selectedDepartmentDetail.slugDepartment.replace("-", " ")
     }`,
   };
+  useEffect(() => {
+    isSectionBar === true
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
+  }, [isSectionBar]);
+
   return (
     <div className="department-page">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
@@ -60,6 +66,7 @@ const Department = () => {
           setSelectedDepartmentDetail={
             setSelectedDepartmentDetail && setSelectedDepartmentDetail
           }
+          isSectionBar={isSectionBar}
           handleIsSectionBar={handleIsSectionBar}
         />
         <DoctorsColumn

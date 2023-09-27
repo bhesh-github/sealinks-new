@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { lazy } from "react";
 import SectionsBar from "../../forAll/relatedBar/SectionsBar";
 
@@ -10,6 +10,7 @@ const Research = ({ relatedList }) => {
     id: relatedList && relatedList[0] && Number(relatedList[0].id),
     slug: relatedList && relatedList[0] && relatedList[0].slug,
   });
+  const [isSectionBar, setIsSectionBar] = useState(false);
 
   const innerBannerInfo = {
     pageName: "News And Notice",
@@ -21,18 +22,35 @@ const Research = ({ relatedList }) => {
   };
   const barHeader = "News / Notice";
 
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
+
+  useEffect(() => {
+    isSectionBar === true
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
+  }, [isSectionBar]);
+
   return (
     <div className="news-and-notice">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
       <div className="section-wrapper">
         <ContentsColumn
           currentContent={selectedBtn && selectedBtn.slug && selectedBtn.slug}
+          handleIsSectionBar={handleIsSectionBar}
         />
         <SectionsBar
           barHeader={barHeader}
           barDataList={relatedList && relatedList}
           selectedBtn={selectedBtn && selectedBtn}
           setSelectedBtn={setSelectedBtn && setSelectedBtn}
+          isSectionBar={isSectionBar}
+          handleIsSectionBar={handleIsSectionBar}
         />
       </div>
     </div>

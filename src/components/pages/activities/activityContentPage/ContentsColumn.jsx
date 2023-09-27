@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-
+import { lazy } from "react";
 import { VscClose } from "react-icons/vsc";
+const FloatingLinkBtn = lazy(() => import("../../../forAll/FloatingLinkBtn"));
 
-const RightColumn = ({ contentContainer, currentContent, gallery }) => {
+const RightColumn = ({
+  contentContainer,
+  currentContent,
+  gallery,
+  handleIsSectionBar,
+}) => {
   const [isSliderOverlay, setIsSliderOverlay] = useState(false);
   const sectionName = `${currentContent.replaceAll("-", " ")}`;
 
@@ -12,73 +18,79 @@ const RightColumn = ({ contentContainer, currentContent, gallery }) => {
 
   return (
     <>
-      <div className="right-column">
+      <div className="contents-column">
         <div className="section-heading">
           <div className="highlight">{sectionName && sectionName}</div>
           <div className="underline-wrapper">
             <span className="dark"></span>
           </div>
         </div>
-
-        {contentContainer &&
-          contentContainer.map((item) => {
-            if (item.slug === currentContent && currentContent) {
-              return (
-                <div
-                  key={item.id}
-                  className="content-container"
-                  dangerouslySetInnerHTML={{
-                    __html: item.desc,
+        <div className="floating-btn-row">
+          <FloatingLinkBtn
+            handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+          />
+        </div>
+        <div className="contents-section-wrapper">
+          {contentContainer &&
+            contentContainer.map((item) => {
+              if (item.slug === currentContent && currentContent) {
+                return (
+                  <div
+                    key={item.id}
+                    className="content-container"
+                    dangerouslySetInnerHTML={{
+                      __html: item.desc,
+                    }}
+                  />
+                );
+              } else {
+                return "";
+              }
+            })}
+          {gallery && gallery.slug === currentContent && (
+            <div className="gallery-container">
+              {gallery &&
+                gallery.images &&
+                gallery.images.map((item, idx) => (
+                  <div
+                    className="card-wrapper"
+                    key={idx}
+                    onClick={() => {
+                      setIsSliderOverlay(true);
+                    }}
+                  >
+                    <div
+                      className="card-image"
+                      style={{ backgroundImage: `url(${item})` }}
+                    >
+                      {/* <img src={item} /> */}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+        </div>
+        {isSliderOverlay && (
+          <div className="overlay-outer">
+            <div
+              className="slider-overlay"
+              onClick={() => {
+                setIsSliderOverlay(false);
+              }}
+            >
+              <div className="btn-wrapper">
+                <VscClose
+                  className="close-btn"
+                  onClick={() => {
+                    setIsSliderOverlay(false);
                   }}
                 />
-              );
-            } else {
-              return "";
-            }
-          })}
-        {gallery && gallery.slug === currentContent && (
-          <div className="gallery-container">
-            {gallery &&
-              gallery.images &&
-              gallery.images.map((item, idx) => (
-                <div
-                  className="card-wrapper"
-                  key={idx}
-                  onClick={() => {
-                    setIsSliderOverlay(true);
-                  }}
-                >
-                  <div
-                    className="card-image"
-                    style={{ backgroundImage: `url(${item})` }}
-                  >
-                    {/* <img src={item} /> */}
-                  </div>
-                </div>
-              ))}
+              </div>
+            </div>
+            <div className="silder-comp"></div>
           </div>
         )}
       </div>
-      {isSliderOverlay && (
-        <div className="overlay-outer">
-          <div
-            className="slider-overlay"
-            onClick={() => {
-              setIsSliderOverlay(false);
-            }}
-          >
-            <div className="btn-wrapper">
-              <VscClose
-                className="close-btn"
-                onClick={() => {
-                  setIsSliderOverlay(false);
-                }}
-              />
-            </div>
-          </div>
-          <div className="silder-comp"></div>
-        </div>
-      )}
     </>
   );
 };

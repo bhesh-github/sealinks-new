@@ -18,8 +18,16 @@ const Services = () => {
     slugSubLinkId: Number(slugSubLinkId && slugSubLinkId),
     slugChildId: Number(slugChildId && slugChildId),
   });
-  
 
+  const [isSectionBar, setIsSectionBar] = useState(false);
+
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
 
   useEffect(() => {
     // setSelectedDepartmentDetail(Number(slugId));
@@ -39,8 +47,15 @@ const Services = () => {
     //   selectedContentDetail.slugSublink.replace("-", " ")
     // }`,
   };
+
+  useEffect(() => {
+    isSectionBar === true
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
+  }, [isSectionBar]);
+
   return (
-    <div className="services-page">
+    <div className="academics-page">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
       <div className="section-wrapper">
         <ContentsBar
@@ -51,11 +66,12 @@ const Services = () => {
           setSelectedContentDetail={
             setSelectedContentDetail && setSelectedContentDetail
           }
+          isSectionBar={isSectionBar}
+          handleIsSectionBar={handleIsSectionBar}
         />
         <ContentsColumn
-          selectedContentDetail={
-            selectedContentDetail && selectedContentDetail
-          }
+          selectedContentDetail={selectedContentDetail && selectedContentDetail}
+          handleIsSectionBar={handleIsSectionBar}
         />
       </div>
     </div>

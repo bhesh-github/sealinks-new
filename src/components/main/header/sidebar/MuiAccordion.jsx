@@ -105,9 +105,7 @@ export default function CustomizedAccordions({ allBtnsList, setDrawerState }) {
                 onClick={() => {
                   setSelectedNavLinkDetail((prev) => ({
                     ...prev,
-                    // slugDepartment: navigateTo,
                     slugNavLinkId: id,
-                    // slugChildId: Number(childLink[0]?.id),
                   }));
                 }}
               />
@@ -117,9 +115,7 @@ export default function CustomizedAccordions({ allBtnsList, setDrawerState }) {
                 onClick={() => {
                   setSelectedNavLinkDetail((prev) => ({
                     ...prev,
-                    // slugDepartment: navigateTo,
                     slugNavLinkId: id,
-                    // slugChildId: Number(childLink[0]?.id),
                   }));
                 }}
               />
@@ -141,11 +137,10 @@ export default function CustomizedAccordions({ allBtnsList, setDrawerState }) {
                   const subLinkNavigateTo = navigateTo;
                   const subLinkId = id;
                   return (
-                    <>
+                    <div key={id}>
                       {title === "Departments" && subLink && (
                         <Accordion
                           className="child-accordion"
-                          key={id}
                           expanded={isSubLinkExpanded} // Set expanded prop based on isExpanded
                         >
                           <AccordionSummary
@@ -376,7 +371,7 @@ export default function CustomizedAccordions({ allBtnsList, setDrawerState }) {
                           )}
                         </Accordion>
                       )}
-                    </>
+                    </div>
                   );
                 })}
             </AccordionDetails>

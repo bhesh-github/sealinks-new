@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { lazy } from "react";
-// import SectionsBar from "../../../forAll/relatedBar/SectionsBar";
-
 const ContentsColumn = lazy(() => import("./ContentsColumn"));
-const JoinUsForm = lazy(() => import("./ApplyForm"));
+const ApplyForm = lazy(() => import("./ApplyForm"));
 
 const InnerBanner = lazy(() => import("../../../forAll/InnerBanner"));
 
@@ -13,6 +11,16 @@ const Research = ({ relatedList }) => {
     slug: relatedList && relatedList[0] && relatedList[0].slug,
   });
 
+  const [isSectionBar, setIsSectionBar] = useState(false);
+
+  const handleIsSectionBar = () => {
+    if (isSectionBar === false) {
+      setIsSectionBar(true);
+    } else {
+      setIsSectionBar(false);
+    }
+  };
+
   const innerBannerInfo = {
     pageName: "Career",
     // title: `${
@@ -21,22 +29,25 @@ const Research = ({ relatedList }) => {
     //   selectedContentDetail.slugSublink.replace("-", " ")
     // }`,
   };
-  const barHeader = "Career";
+
+  useEffect(() => {
+    isSectionBar === true
+      ? (document.body.style.overflowY = "hidden")
+      : (document.body.style.overflowY = "scroll");
+  }, [isSectionBar]);
 
   return (
-    <div className="research">
+    <div className="career-detail">
       <InnerBanner innerBannerInfo={innerBannerInfo} />
       <div className="section-wrapper">
         <ContentsColumn
           currentContent={selectedBtn && selectedBtn.slug && selectedBtn.slug}
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
         />
-        {/* <SectionsBar
-          barHeader={barHeader}
-          barDataList={relatedList && relatedList}
-          selectedBtn={selectedBtn && selectedBtn}
-          setSelectedBtn={setSelectedBtn && setSelectedBtn}
-        /> */}
-        <JoinUsForm />
+        <ApplyForm
+          isSectionBar={isSectionBar}
+          handleIsSectionBar={handleIsSectionBar && handleIsSectionBar}
+        />
       </div>
     </div>
   );

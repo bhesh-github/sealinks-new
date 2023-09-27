@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 const VacancyCard = ({ item }) => {
   const {
-    id = "",
+    // id = "",
     position = "",
-    slug = "",
+    // slug = "",
     numOfVacancy = "",
     deadLine = "",
   } = item;
@@ -14,12 +14,7 @@ const VacancyCard = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="vacancy-card"
-      onClick={() => {
-        navigate("/career/detail");
-      }}
-    >
+    <div className="vacancy-card">
       <div className="text-column">
         <div className="position wrap">
           <span className="label">{position}</span>
@@ -33,8 +28,16 @@ const VacancyCard = ({ item }) => {
           </div>
         </div>
       </div>
-      <Button className="apply-now">Apply now</Button>
-      {/* <div></div> */}
+      <Button
+        className="apply-now"
+        onClick={() => {
+          setTimeout(() => {
+            navigate("/career/detail");
+          }, 250);
+        }}
+      >
+        Apply now
+      </Button>
     </div>
   );
 };
