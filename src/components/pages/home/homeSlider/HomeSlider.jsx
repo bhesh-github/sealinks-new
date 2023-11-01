@@ -9,6 +9,8 @@ import img3 from "../../../../images/home/sliderImages/img3.jpg";
 import Carousel from "react-material-ui-carousel";
 
 function HomeSlider({ imagesList }) {
+  // const [activeSlideBtn, setActiveSlideBtn] = useState(0);
+
   return (
     <div className="carousel-wrapper">
       <Carousel navButtonsAlwaysInvisible={true} className="carousel-comp" indicators={false}>
@@ -61,6 +63,4 @@ HomeSlider.defaultProps = {
     { id: 2, image_link: img2 },
   ],
 };
-{
-  /* <img key={id} src={image_link} alt="" className="slide-img" /> */
-}
+
