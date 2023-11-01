@@ -1,13 +1,15 @@
 @import "./homeSlider";
-@import "./hiButtons";
+@import "./hiCategories/hiCategories";
 @import "./clinicalExcellence";
 @import "./healthPackages/healthPackages";
-@import "./whyChooseUs";
+@import "./inboundSection/inboundSection";
+@import "./outboundSection/outboundSection";
 @import "./messageFromDirector";
 @import "./ourAcademics";
 @import "./healthCareVideos";
 @import "./news/news";
 @import "./getInTouch";
+@import "./ourCompanies/ourCompanies";
 
 .home-page {
   overflow-x: hidden;

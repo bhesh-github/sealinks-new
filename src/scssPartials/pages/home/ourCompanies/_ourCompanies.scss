@@ -1,0 +1,89 @@
+@import "./partnerCard";
+
+.our-companies {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  // position: relative;
+  margin-top: 120px;
+  height: max-content;
+  //   padding-bottom: 120px;
+  margin-bottom: 120px;
+  .content {
+    //   background-color: $primaryLiteBlue;
+	// border: 2px solid rgb(232, 232, 232);
+	// border-radius: 60px 25px 25px 60px;
+
+    // margin-top: 120px;
+    // padding-top: 120px;
+	
+    width: 1284.5px;
+    padding: 0 45px;
+    // padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .sec-head {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: $primaryPeru;
+      .highlight {
+        color: $primaryBlue;
+      }
+      text-transform: uppercase;
+    }
+    .sec-subtitle {
+      z-index: 1;
+      padding: 0 1em;
+      background-color: #fff;
+    }
+    .sub-line {
+      margin-top: -0.7em;
+      width: 700px;
+      background-color: rgb(0, 0, 0);
+      height: 0.7pt;
+    }
+    .cards-wrapper {
+      // height: max-content;
+      margin-top: 60px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 5em 3em;
+      // margin-bottom: 5em;
+    }
+    @media screen and (max-width: 644px) {
+      .cards-wrapper {
+        gap: 2em;
+        row-gap: 3em;
+      }
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .in-wrapper {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .in-wrapper {
+      padding: 15px;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .our-companies {
+    margin-top: 60px;
+    padding-bottom: 3em;
+  }
+}

@@ -1,4 +1,11 @@
-$primaryDarkBlue: #1f2b6c;
+$primaryBlue: #144089;
+$primaryLiteBlue: #eef8ff;
+$primaryPeru: #f9a33b;
+$rearBlack: rgb(72, 72, 72);
+$primaryLiteSilver: "#f1f1f1";
+
+// ----------------------------------
+$primaryDarkBlue: #28378e;
 $primarySkyBlue: #159eec;
 $primaryLiteBlue: #eaf0ff;
 
@@ -15,6 +22,7 @@ $primaryRavenBlack: #212124;
 
 body {
   font-family: Roboto;
+  font-family: "Poppins", sans-serif;
 }
 
 @import "./scssPartials/main/header/header";
@@ -29,6 +37,8 @@ body {
 @import "./scssPartials/forAll/datePicker/datePiker";
 @import "./scssPartials/forAll/relatedBar/sectionsBar";
 @import "./scssPartials/forAll/floatingLinkBtn";
+@import "./scssPartials/forAll/tripCard";
+@import "./scssPartials/forAll/accountMenu";
 
 @import "./scssPartials/pages/departments/department";
 @import "./scssPartials/pages/about/aboutUs";

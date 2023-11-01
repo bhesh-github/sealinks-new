@@ -14,13 +14,13 @@ const ReactResponsiveCarousel = ({ newsDataList }) => {
   return (
     <>
       <Slider
-        dots
         className="react-responsive-carousel"
         autoplay={false}
         duration="100"
         dotsClass="dots-indicator dots-wrapper"
-        arrowsBlock={false}
-        arrows={false}
+        arrowsBlock={true}
+        arrows={true}
+        dots={false}
       >
         {newsDataList &&
           newsDataList.map((item = "", idx) => (

@@ -9,7 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 export default function TemporaryDrawer({
   drawerState,
   setDrawerState,
-  nmcLogo,
+  companyLogo,
   navItems,
 }) {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export default function TemporaryDrawer({
     >
       <div className="name-logo-wrapper">
         <img
-          src={nmcLogo && nmcLogo}
+          src={companyLogo && companyLogo}
           alt=""
           className="company-logo"
           onClick={() => {

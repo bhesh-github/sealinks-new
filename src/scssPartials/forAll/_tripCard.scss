@@ -1,0 +1,219 @@
+// ---TripCard Comp---
+.trip-card {
+  //   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  border: 1.5px solid rgb(232, 232, 232);
+  background-color: #fff;
+  // width: 100%;
+  // width: 500px;
+  // height: 500px;
+  &:hover {
+    .trip-card-img-wrapper {
+      // border: 2.5px solid rgb(232, 232, 232);
+      // box-shadow: 2px 2px 7px rgb(236, 236, 236);
+      .trip-card-img {
+        box-shadow: 1px 2px 7px rgb(190, 190, 190);
+      }
+    }
+  }
+  .trip-card-img-wrapper {
+    cursor: pointer;
+    position: relative;
+    // overflow: hidden;
+    width: 100%;
+    // height: 60%;
+    // height: 300px;
+    height: 200px;
+    // max-height: 200px;
+    // height: 200px;
+    margin-bottom: 10px;
+    .trip-card-img {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      //   position: absolute;
+      //   transition: transform 0.5s;
+      //   width: 100%;
+      //   height: 100%;
+    }
+    .days {
+      background-color: #fff;
+      position: absolute;
+      z-index: 9;
+      top: 1em;
+      left: 1em;
+      border-radius: 10px 10px;
+      .texts {
+        color: $rearBlack;
+        padding: 5px 10px;
+        font-size: 12px;
+      }
+    }
+  }
+  .trip-card-intro {
+    border-radius: 25px;
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    // padding: 5px 12px;
+    padding: 5px 15px 25px;
+    // height: 40%;
+    background-color: #fff;
+    // margin-top: -1.5em;
+    z-index: 99;
+    // &:hover {
+    //   .trip-card-title {
+    //     cursor: pointer;
+    //     text-decoration: underline;
+    //   }
+    //   .category-days-stars-wrapper {
+    //     .trip-card-category {
+    //       .cat-text {
+    //         cursor: pointer;
+    //         text-decoration: underline;
+    //       }
+    //     }
+    //   }
+    // }
+    .title-wrapper {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+      .trip-card-title {
+        // cursor: pointer;
+        color: #000;
+        //   font-size: 1.5rem;
+        //   font-size: 1rem;
+        font-size: 1.2rem;
+        // font-weight: bold;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }
+      .cat-text {
+        margin-top: 5px;
+        font-size: 13px;
+        color: $rearBlack;
+      }
+    }
+    // .category-days-stars-wrapper {
+    //   display: flex;
+    //   align-items: baseline;
+    //   justify-content: space-between;
+    //   font-size: 1em;
+    //   font-weight: 400;
+    //   color: grey;
+    //   gap: 0.5em;
+    //   .trip-card-category {
+    //     display: flex;
+    //     gap: 5px;
+    //     align-items: center;
+    //     // .cat-icon {
+    //     //   color: $primaryBlue;
+    //     // }
+
+    //   }
+    // }
+    .price-booknow-btn-wrapper {
+      margin-top: 1.2em;
+      overflow: hidden;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      //   .trip-card-button {
+      //     width: 80%;
+      //     height: 80%;
+      //     border: none;
+      //     cursor: pointer;
+      //     border-radius: 5px;
+      //     font-size: 15px;
+      //     background-color: #20558a;
+      //     color: white;
+      //   }
+      //   .trip-card-button:hover {
+      //     background-color: #f79621;
+      //   }
+      .trip-card-price {
+        width: 100%;
+        // display: flex;
+        // align-items: baseline;
+        gap: 5px;
+        // flex-direction: column;
+        // font-size: 1.3em;
+        // font-size: 22px;
+        // font-size: 1rem;
+        font-size: 11px;
+        // .per-person {
+        //   color: grey;
+        //   font-weight: 400;
+        //   font-size: 0.6em;
+        // }
+        .from-text {
+          color: $rearBlack;
+        }
+        .price {
+          margin-left: 5px;
+          font-weight: 500;
+          font-size: 1.2rem;
+        }
+      }
+      .star-wrapper {
+        background-color: #fff8dc;
+        padding: 5px 13px;
+        // height: 25px;
+        border-radius: 50px 50px 50px 50px;
+        display: flex;
+        justify-content: center;
+        gap: 3px;
+        align-items: center;
+        color: #fdcc0d;
+        .start-icon {
+        }
+        .star-text {
+          color: #000;
+          // font-weight: 400;
+        }
+      }
+    }
+  }
+  h1 {
+    color: red;
+  }
+}
+// .trip-card:hover {
+//   .trip-card-img {
+//     // transform: scale(1.1);
+//   }
+// }
+
+// ---StarsRating Component---
+.star-rating-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 13.5px;
+  display: flex;
+  .stars-rating {
+    .star-icon {
+      width: 17px;
+      height: 17px;
+      color: #fdcc0d;
+    }
+  }
+  .total-stars {
+    margin: 0 5px;
+  }
+  .total-reviews {
+    color: grey;
+  }
+}

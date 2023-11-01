@@ -1,0 +1,72 @@
+@import "./outboundPlaceCard";
+
+.outbound-section {
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .content {
+    // width: 1344.5px;
+    width: 1315px;
+    // width: 1244.5px;
+    padding: 0 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .sec-head {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0em;
+      text-align: center;
+      color: $primaryPeru;
+      .highlight {
+        color: $primaryBlue;
+      }
+      text-transform: uppercase;
+    }
+    .sec-subtitle {
+      z-index: 1;
+      padding: 0 1em;
+      background-color: #fff;
+    }
+    .sub-line {
+      margin-top: -0.7em;
+      width: 700px;
+      background-color: rgb(0, 0, 0);
+      height: 1px;
+    }
+    @media screen and (max-width: 550px) {
+      .sec-head {
+        font-size: 27px;
+      }
+    }
+    .cards-wrapper {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2em;
+    }
+    .view-more-btn {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 1285px) {
+    .content {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 550px) {
+    .content {
+      padding: 0 16px;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .outbound-section {
+    margin-top: 30px;
+  }
+}

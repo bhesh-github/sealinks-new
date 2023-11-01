@@ -6,13 +6,19 @@ import { ReactComponent as InstaIcon } from "../../images/main/footer/instaIcon.
 import { ReactComponent as FbIcon } from "../../images/main/footer/fbIcon.svg";
 import { ReactComponent as LinkdenIcon } from "../../images/main/footer/linkdenIcon.svg";
 import { ReactComponent as SendArrow } from "../../images/main/footer/sendArrow.svg";
+import paymentCardsImg from "../../images/main/footer/payments.png";
+
+import { FaTripadvisor } from "react-icons/fa";
+import { BiLogoFacebook } from "react-icons/bi";
+import { FiInstagram } from "react-icons/fi";
+import { AiFillYoutube } from "react-icons/ai";
 
 import ProgressIndicator from "../forAll/ProgressIndicator";
 
 const inputObj = {
   email: "",
 };
-const Footer = ({ introSection, importantLinks, contactUs }) => {
+const Footer = ({ introSection, importantLinks, contactUs, footerLinks }) => {
   const [inputValue, setInputValue] = useState(inputObj);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formErrors, setFormErrors] = useState({});
@@ -39,37 +45,14 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    setFormErrors(validate(inputValue));
-    setIsSubmit(true);
-  };
+  //   setFormErrors(validate(inputValue));
+  //   setIsSubmit(true);
+  // };
 
   const postRequestFunc = async () => {
-    // const d =
-    //     formInput &&
-    //     formInput.date;
-    // const month = Number(d.getMonth()) + 1;
-    // const displayDate = d.getFullYear() + "-" + month + "-" + d.getDate();
-
-    // let postStatus;
-
-    // const formData = {
-    //     ...formInput,
-    //     tour_date: displayDate,
-    // };
-    // await axios
-    //     .post(
-    //         import.meta.env.VITE_API_BASE_URL + "/api/package-booking",
-    //         formData
-    //     )
-    //     .then((res) => {
-    //         postStatus = res.data.status;
-    //     })
-    //     .catch((err) => {
-    //         postStatus = err.response.status;
-    //     });
     setFormSubmitting(true);
     setTimeout(() => {
       setInputValue((prev) => ({
@@ -84,29 +67,6 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
       setSnackBarState((prev) => ({ ...prev, open: true }));
       handleClick({ vertical: "bottom", horizontal: "center" });
     }, 3000);
-    // const m =
-    //     postStatus === 200
-    //         ? "You have Booked your tour Successfully."
-    //         : "Unfortunately Booking Failed. please try again later";
-
-    // setSpinnerClassName("none");
-
-    // postStatus === 200
-    //     ? Swal.fire({
-    //           position: "center",
-    //           icon: "success",
-    //           title: m,
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //       })
-    //     : Swal.fire({
-    //           position: "center",
-    //           icon: "error",
-    //           title: m,
-    //           showConfirmButton: false,
-    //           timer: 1500,
-    //       });
-    // toggleOverlay(false);
   };
 
   useEffect(() => {
@@ -128,6 +88,8 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
     return errors;
   };
 
+  const d = new Date();
+
   return (
     <>
       {formSubmitting && (
@@ -138,93 +100,86 @@ const Footer = ({ introSection, importantLinks, contactUs }) => {
       <div className="footer">
         <div className="contents">
           <div className="columns-wrapper">
-            <div className="intro-column">
-              <div className="logo-name-wrapper">
-                {<img src={nmcLogo} alt="" className="logo" />}
-                <div className="name"> {introSection && introSection.name}</div>
-              </div>
-              <div className="brief">{introSection && introSection.text}</div>
-            </div>
-            <div className="links-column">
-              <div className="title">
-                {importantLinks && importantLinks.title}
-              </div>
-              <div className="list-wrapper">
-                {importantLinks &&
-                  importantLinks.linkList &&
-                  importantLinks.linkList.map((item, idx) => (
-                    <div
-                      className="list-item"
-                      key={idx}
-                      onClick={() => {
-                        navigate(`${item.navigateTo}`);
-                      }}
-                    >
-                      {item.linkName && item.linkName}
+            {footerLinks.map((item) => {
+              const { id = "", title = "", linkList = "", list = "" } = item;
+              if (title === "Contact") {
+                return (
+                  <div className="links-column" key={id}>
+                    <div className="title">{title && title}</div>
+                    <div className="list-wrapper">
+                      {list.map((item) => {
+                        const {
+                          id = "",
+                          text = "",
+                          type = "",
+                          img_link = "",
+                        } = item;
+                        if (type === "img") {
+                          return <img src={img_link} alt="" width="220px" />;
+                        } else {
+                          return (
+                            <div className="contact-list-item" key={id}>
+                              {text}
+                            </div>
+                          );
+                        }
+                      })}
                     </div>
-                  ))}
-              </div>
-            </div>
-            <div className="contact-us-column">
-              <div className="title">
-                {contactUs && contactUs.title && contactUs.title}
-              </div>
-              <div className="list-wrapper">
-                <div className="contact-list">
-                  Call: {contactUs && contactUs.number && contactUs.number}
-                </div>
-                <div className="contact-list">
-                  Email: {contactUs && contactUs.email && contactUs.email}
-                </div>
-                <div className="contact-list">
-                  Address: {contactUs && contactUs.address && contactUs.address}
-                </div>
-              </div>
-            </div>
-            <div className="newsletter-column">
-              <div className="title">Newsletter</div>
-              <form
-                className="email-form"
-                onSubmit={(e) => {
-                  handleSubmit(e);
-                }}
-              >
-                <div className="input-btn-wrapper">
-                  <input
-                    value={inputValue.email}
-                    name="email"
-                    onChange={handleChange}
-                    placeholder="Enter your email address"
-                    className="input-filed"
-                  />
-                  <button className="send-arrow-btn" type="submit">
-                    <SendArrow className="send-arrow" />
-                  </button>
-                </div>
-                <div className="form-error">
-                  {formErrors && formErrors.email && formErrors.email}
-                </div>
-              </form>
-            </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="links-column" key={id}>
+                    <div className="title">{title && title}</div>
+                    <div className="list-wrapper">
+                      {linkList.map((item, idx) => (
+                        <div
+                          className="list-item"
+                          key={idx}
+                          onClick={() => {
+                            navigate(`${item.navigateTo}`);
+                          }}
+                        >
+                          {item.linkName && item.linkName}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+            })}
           </div>
-          <hr className="hr-line" />
-          <div className="bottom-row">
-            <div className="copyright-text">
-              © 2023 Nepal Medical College. All Rights Reserved.
-            </div>
+          <div className="hr-line"></div>
+        </div>
+        <div className="bottom-row">
+          <div className="content">
             <div className="social-icons-wrapper">
-              <LinkdenIcon className="icon" />
+              <BiLogoFacebook className="icon" />
+              <FiInstagram className="icon" />
+              <AiFillYoutube className="icon" />
+              <FaTripadvisor className="icon" />
+
+              {/* <LinkdenIcon className="icon" />
               <FbIcon className="icon" />
-              <InstaIcon className="icon" />
+              <InstaIcon className="icon" /> */}
+            </div>
+            <div className="copyright-text">
+              <div className="text-item">
+                © {d && d.getFullYear()} Sealinks Holidays Pvt. Ltd.
+              </div>
+              <div className="text-item">All Rights Reserved</div>
+              <div className="text-item">
+                Developed by Next Aussie Tech - Kathmandu
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <SnackBar
+      {/* <SnackBar
         alertMessage={alertMessage}
         snackBarState={snackBarState}
         setSnackBarState={setSnackBarState}
-      />
+      /> */}
     </>
   );
 };
@@ -253,8 +208,92 @@ Footer.defaultProps = {
   },
   contactUs: {
     title: "Contact Us",
-    number: "+977-01-4911008",
+    number: "+977 9802348633",
     email: "principal@nmcth.edu",
-    address: "Attarkhel, Jorpati, Kathmandu, Nepal",
+    address: "Naxal-01, Nag Pokhari, Kathmandu, Nepal",
+    img_link:
+      "https://test.terracecafe.com.np/build/assets/payment-cards-7aed09b0.png",
   },
+  footerLinks: [
+    {
+      id: 0,
+      title: "Important Links",
+      linkList: [
+        {
+          id: 0,
+          linkName: "Jungle Highlights",
+          navigateTo: "",
+        },
+        {
+          id: 0,
+          linkName: "Beauty With Purpose Highlights",
+          navigateTo: "",
+        },
+        {
+          id: 0,
+          linkName: "Adventure Highlights",
+          navigateTo: "",
+        },
+      ],
+    },
+    {
+      id: 1,
+      title: "Expedition",
+      linkList: [
+        {
+          id: 0,
+          linkName: "The Best of Everest Base Camp Trek / Kalapathar Trekking",
+          navigateTo: "",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Quick Links",
+      linkList: [
+        {
+          id: 0,
+          linkName: "FAQ",
+          navigateTo: "",
+        },
+        {
+          id: 1,
+          linkName: "Booking Condition",
+          navigateTo: "",
+        },
+        {
+          id: 2,
+          linkName: "Visa Information",
+          navigateTo: "",
+        },
+        {
+          id: 3,
+          linkName: "General Information",
+          navigateTo: "",
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: "Contact",
+      list: [
+        {
+          id: 0,
+          text: "+977 9802348633",
+          navigateTo: "",
+        },
+        {
+          id: 1,
+          text: "Naxal-01, Nag Pokhari, Kathmandu, Nepal",
+          navigateTo: "",
+        },
+        {
+          id: 2,
+          type: "img",
+          img_link: paymentCardsImg,
+          navigateTo: "",
+        },
+      ],
+    },
+  ],
 };

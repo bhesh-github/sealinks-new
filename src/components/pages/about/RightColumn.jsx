@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { lazy } from "react";
-
 import img1 from "../../../images/pages/about/gallery/img1.jpg";
 import img2 from "../../../images/pages/about/gallery/img2.jpg";
 import img3 from "../../../images/pages/about/gallery/img3.jpg";
@@ -9,7 +8,6 @@ import img5 from "../../../images/pages/about/gallery/img5.jpg";
 import img6 from "../../../images/pages/about/gallery/img6.jpg";
 import GalleryCarousel from "./GalleryCarousel";
 import { VscClose } from "react-icons/vsc";
-
 
 const FloatingLinkBtn = lazy(() => import("../../forAll/FloatingLinkBtn"));
 

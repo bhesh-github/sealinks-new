@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
-import nmcLogo from "../../../images/forAll/nmcLogo.png";
+import companyLogo from "../../../images/forAll/sealinks_logo.png";
+import AccountMenu from "../../forAll/accountMenu/AccountMenu";
+
 import Sidebar from "./sidebar/Sidebar";
 import { ReactComponent as FbIcon } from "../../../images/forAll/socialIcons/fb.svg";
 import { ReactComponent as InstaIcon } from "../../../images/forAll/socialIcons/insta.svg";
 import { ReactComponent as LinkdenIcon } from "../../../images/forAll/socialIcons/linkden.svg";
 import { ReactComponent as YoutubeIcon } from "../../../images/forAll/socialIcons/youtube.svg";
 import { useNavigate } from "react-router-dom";
+//
+import { MdPhoneEnabled } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 import Button from "@mui/material/Button";
 
 const Header = ({ navItems }) => {
   const [isDropdown, setIsDropdown] = useState("");
+
   const [drawerState, setDrawerState] = React.useState({
     left: false,
   });
+  const [rightContents, setRightContents] = useState("");
+  const [activeMenuItem, setActiveMenuItem] = useState(0);
+
   const navigate = useNavigate();
 
   const handleDropdownDisplay = () => {
@@ -29,48 +39,7 @@ const Header = ({ navItems }) => {
     <>
       <div className="header">
         <div className="menu-items-cover">
-          <div className="top-bar-wrapper">
-            <div className="top-bar">
-              <div className="social-links">
-                <FbIcon className="icon" />
-                <span className="divider"></span>
-                <InstaIcon className="icon" />
-                <span className="divider"></span>
-                <LinkdenIcon className="icon" />
-                <span className="divider"></span>
-                <YoutubeIcon className="icon" />
-              </div>
-              <div className="nav-item">
-                <span
-                  className="item"
-                  onClick={() => {
-                    navigate("/news-and-notice");
-                  }}
-                >
-                  News & Notice
-                </span>
-                <span className="divider"></span>
-                <span
-                  className="item"
-                  onClick={() => {
-                    navigate("/career");
-                  }}
-                >
-                  Career
-                </span>
-                <span className="divider"></span>
-                <span
-                  className="item"
-                  onClick={() => {
-                    navigate("./contact-us");
-                  }}
-                >
-                  Contact
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="mid-bar-wrapper">
+          <div className="main-bar">
             <div className="items-wrapper">
               <span
                 className="left-section"
@@ -78,24 +47,16 @@ const Header = ({ navItems }) => {
                   navigate("/");
                 }}
               >
-                <img src={nmcLogo} alt="" className="nmc-logo" />
-                <span className="company-name">NEPAL MEDIAL COLLEGE</span>
+                <img src={companyLogo} alt="" className="company-logo" />
+                {/* <span className="company-name">NEPAL MEDIAL COLLEGE</span> */}
               </span>
-              <span className="btns-wrapper">
-                <Button className="action-btn lab-btn">Lab Report</Button>
-                <Button
-                  className="action-btn appointment-btn"
-                  onClick={() => {
-                    setTimeout(() => {
-                      navigate("./doctor-appointment/direct");
-                    }, 250);
-                  }}
-                >
-                  Book an Appointment
-                </Button>
-              </span>
+              <div className="right-sec">
+                <div className="account-menu-comp">
+                  <AccountMenu />
+                </div>
+              </div>
 
-              <RxHamburgerMenu
+              {/* <RxHamburgerMenu
                 className="toggle-icon"
                 onClick={() => {
                   setDrawerState((prev) => ({
@@ -103,15 +64,13 @@ const Header = ({ navItems }) => {
                     left: true,
                   }));
                 }}
-              />
+              /> */}
             </div>
           </div>
-          <hr className="hr-line" />
           <div className="bottom-bar">
             <div className="nav-item-wrapper">
               {navItems.map((navlink, idx) => {
                 const { title = "", subLink = "", navigateTo = "" } = navlink;
-                const primaryDarkBlue = "#1f2b6c";
                 return (
                   <span className="dropdown" key={idx}>
                     <button
@@ -122,20 +81,76 @@ const Header = ({ navItems }) => {
                         }
                       }}
                       style={{ cursor: subLink ? "context-menu" : "" }}
+                      onMouseEnter={() => {
+                        setRightContents(
+                          subLink && subLink[0] && subLink[0].childLink
+                            ? subLink[0].childLink
+                            : ""
+                        );
+                        setActiveMenuItem(0);
+                      }}
                     >
                       {" "}
                       {title}
                       {subLink && (
-                        <BsFillCaretDownFill className="caret-icon" />
+                        <MdOutlineKeyboardArrowDown className="caret-icon" />
                       )}
                     </button>
-                    {title === "Departments" && subLink && (
+                    {title === "Inbounds" && subLink && (
                       <div
                         className="outer-wrapper"
                         style={{ display: `${isDropdown && isDropdown}` }}
                       >
                         <div className="dropdown-content">
-                          {subLink &&
+                          <div className="menus">
+                            {subLink &&
+                              subLink.map((item, idx) => {
+                                const {
+                                  id = "",
+                                  text = "",
+                                  navigateTo = "",
+                                  childLink = "",
+                                } = item;
+
+                                const activeItem =
+                                  idx === activeMenuItem ? "#f1f1f1" : "";
+
+                                return (
+                                  <div
+                                    className="menu-item-wrapper"
+                                    key={id}
+                                    onMouseEnter={() => {
+                                      setRightContents(childLink);
+                                      setActiveMenuItem(idx);
+                                    }}
+                                    style={{
+                                      backgroundColor: `${activeItem}`,
+                                    }}
+                                  >
+                                    <div className="menu-item">{text}</div>
+                                    {childLink && (
+                                      <MdKeyboardArrowRight className="arrow-icon" />
+                                    )}
+                                  </div>
+                                );
+                              })}
+                          </div>
+                          <div className="right-contents">
+                            {rightContents &&
+                              rightContents.map((item) => {
+                                const {
+                                  id = "",
+                                  text = "",
+                                  navigateTo = "",
+                                } = item;
+                                return (
+                                  <div className="content-item" key={id}>
+                                    {text}
+                                  </div>
+                                );
+                              })}
+                          </div>
+                          {/* {subLink &&
                             subLink.map((subLinkItem) => {
                               return (
                                 <div
@@ -178,113 +193,115 @@ const Header = ({ navItems }) => {
                                   </div>
                                 </div>
                               );
-                            })}
+                            })} */}
                         </div>
                       </div>
                     )}
-                    {title === "Services" && subLink && (
+                    {title === "Outbounds" && subLink && (
                       <div
                         className="outer-wrapper"
                         style={{ display: `${isDropdown && isDropdown}` }}
                       >
                         <div className="dropdown-content">
-                          {subLink &&
-                            subLink.map((subLinkItem) => {
-                              return (
-                                <div
-                                  className="sublink-and-child"
-                                  key={subLinkItem.id}
-                                >
+                          <div className="menus">
+                            {subLink &&
+                              subLink.map((item, idx) => {
+                                const {
+                                  id = "",
+                                  text = "",
+                                  navigateTo = "",
+                                  childLink = "",
+                                } = item;
+                                const activeItem =
+                                  idx === activeMenuItem ? "#f1f1f1" : "";
+
+                                return (
                                   <div
-                                    className="sublink"
-                                    style={{
-                                      borderBottom: subLinkItem.childLink
-                                        ? `1px solid ${primaryDarkBlue}`
-                                        : "",
+                                    className="menu-item-wrapper"
+                                    key={id}
+                                    onMouseEnter={() => {
+                                      setRightContents(childLink);
+                                      setActiveMenuItem(idx);
                                     }}
-                                    onClick={() => {
-                                      subLinkItem.navigateTo &&
-                                        navigate(
-                                          `/services/${subLinkItem.navigateTo}/${subLinkItem.id}/${subLink[0].id}`
-                                        );
-                                      handleDropdownDisplay();
+                                    style={{
+                                      backgroundColor: `${activeItem}`,
                                     }}
                                   >
-                                    {subLinkItem.text}
+                                    <div className="menu-item">{text}</div>
+                                    {childLink && (
+                                      <MdKeyboardArrowRight className="arrow-icon" />
+                                    )}
                                   </div>
-                                  <div className="child-link-wrapper">
-                                    {subLinkItem.childLink &&
-                                      subLinkItem.childLink.map((item) => (
-                                        <div
-                                          className="child-link"
-                                          key={item.id}
-                                          onClick={() => {
-                                            navigate(
-                                              `/services/${subLinkItem.navigateTo}/${subLinkItem.id}/${item.id}`
-                                            );
-                                            handleDropdownDisplay();
-                                          }}
-                                        >
-                                          {item.text}
-                                        </div>
-                                      ))}
+                                );
+                              })}
+                          </div>
+                          <div className="right-contents">
+                            {rightContents &&
+                              rightContents.map((item) => {
+                                const {
+                                  id = "",
+                                  text = "",
+                                  navigateTo = "",
+                                } = item;
+                                return (
+                                  <div className="content-item" key={id}>
+                                    {text}
                                   </div>
-                                </div>
-                              );
-                            })}
+                                );
+                              })}
+                          </div>
                         </div>
                       </div>
                     )}
-                    {title === "Academics" && subLink && (
+                    {title === "More Links" && subLink && (
                       <div
                         className="outer-wrapper"
                         style={{ display: `${isDropdown && isDropdown}` }}
                       >
                         <div className="dropdown-content">
-                          {subLink &&
-                            subLink.map((subLinkItem) => {
-                              return (
-                                <div
-                                  className="sublink-and-child"
-                                  key={subLinkItem.id}
-                                >
+                          <div className="menus">
+                            {subLink &&
+                              subLink.map((item, idx) => {
+                                const {
+                                  id = "",
+                                  text = "",
+                                  navigateTo = "",
+                                  childLink = "",
+                                } = item;
+                                const activeItem =
+                                  idx === activeMenuItem ? "#f1f1f1" : "";
+
+                                return (
                                   <div
-                                    className="sublink"
-                                    style={{
-                                      borderBottom: subLinkItem.childLink
-                                        ? `1px solid ${primaryDarkBlue}`
-                                        : "",
+                                    className="menu-item-wrapper"
+                                    key={id}
+                                    onMouseEnter={() => {
+                                      setRightContents(childLink);
+                                      setActiveMenuItem(idx);
                                     }}
-                                    onClick={() => {
-                                      subLinkItem.navigateTo &&
-                                        navigate(
-                                          `/academics/${subLinkItem.navigateTo}/${subLinkItem.id}/${subLink[0].id}`
-                                        );
-                                      handleDropdownDisplay();
+                                    style={{
+                                      backgroundColor: `${activeItem}`,
                                     }}
                                   >
-                                    {subLinkItem.text}
+                                    <div className="menu-item">{text}</div>
+                                    {childLink && (
+                                      <MdKeyboardArrowRight className="arrow-icon" />
+                                    )}
                                   </div>
-                                  <div className="child-link-wrapper">
-                                    {subLinkItem.childLink &&
-                                      subLinkItem.childLink.map((item) => (
-                                        <div
-                                          className="child-link"
-                                          key={item.id}
-                                          onClick={() => {
-                                            navigate(
-                                              `/academics/${subLinkItem.navigateTo}/${subLinkItem.id}/${item.id}`
-                                            );
-                                            handleDropdownDisplay();
-                                          }}
-                                        >
-                                          {item.text}
-                                        </div>
-                                      ))}
+                                );
+                              })}
+                          </div>
+                          <div className="right-contents">
+                            {rightContents &&
+                              rightContents.map((item) => {
+                                const { id = "", text = "" } = item;
+                                return (
+                                  <div className="content-item" key={id}>
+                                    {text}
                                   </div>
-                                </div>
-                              );
-                            })}
+                                );
+                              })}
+                          </div>
                         </div>
                       </div>
                     )}
@@ -298,7 +315,7 @@ const Header = ({ navItems }) => {
       <Sidebar
         drawerState={drawerState}
         setDrawerState={setDrawerState}
-        nmcLogo={nmcLogo}
+        companyLogo={companyLogo}
         navItems={navItems}
       />
     </>
@@ -309,300 +326,150 @@ export default Header;
 Header.defaultProps = {
   navItems: [
     {
-      id: 0,
-      title: "Home",
-      navigateTo: "/",
-    },
-    {
-      id: 1,
-      title: "About us",
-      navigateTo: "/about-us",
-    },
-    {
       id: 2,
-      title: "Departments",
+      title: "Inbounds",
       navigateTo: "/departments",
       subLink: [
         {
           id: 0,
-          text: "Internal Medicine Department",
+          text: "Top Tour Packages",
           navigateTo: "internal-Medicine-department",
           childLink: [
             {
               id: 0,
-              text: "General Medicine",
-              navigateTo: "general-medicine",
+              text: "Geteway To Ilam Tea Garden",
+              navigateTo: "geteway-to-ilam-tea-garden",
             },
             {
               id: 1,
-              text: "Pulmonology",
-              navigateTo: "pulmonology",
+              text: "Namo Buddha Day Tour",
+              navigateTo: "namo-buddha-day-tour",
             },
             {
               id: 2,
-              text: "Cardiology",
-              navigateTo: "cardiology",
+              text: "Hello Kathmandu Tour",
+              navigateTo: "hello-kathmandu-tour",
             },
             {
               id: 3,
-              text: "gastroenterology",
-              navigateTo: "gastroenterology",
+              text: "Capital Highlights Tour",
+              navigateTo: "capital-highlights-tour",
             },
             {
               id: 4,
-              text: "Critical Care",
-              navigateTo: "critical-care",
+              text: "Muktinath Darshan Tour",
+              navigateTo: "muktinath-darshan-tour",
             },
             {
               id: 5,
-              text: "Endocrynology",
-              navigateTo: "endocrynology",
+              text: "Kathmandu And Pokhara Tour",
+              navigateTo: "kathmandu-and-pokhara-tour",
             },
             {
               id: 6,
-              text: "Rheumatology",
-              navigateTo: "rheumatology",
+              text: "Sirubari Village Tour",
+              navigateTo: "sirubari-village-tour",
             },
             {
               id: 7,
-              text: "Neurology",
-              navigateTo: "neurology",
+              text: "Other Attracting Packages",
+              navigateTo: "other-attracting-packages",
             },
           ],
         },
         {
           id: 1,
-          text: "Nephrology Department",
+          text: "Top Trekking",
           navigateTo: "nephrology-department",
           childLink: [
             {
               id: 0,
-              text: "Nephrology",
-              navigateTo: "nephrology",
+              text: "Langtang Trek",
+              navigateTo: "langtang-trek",
             },
             {
               id: 1,
-              text: "Hemodialysis",
-              navigateTo: "hemodialysis",
+              text: "Rara Lake Trekking",
+              navigateTo: "rara-lake-trekking",
+            },
+            {
+              id: 2,
+              text: "Kathmandu Nagarkot Paradise",
+              navigateTo: "kathmandu-nagarkot-paradise",
+            },
+            {
+              id: 3,
+              text: "Darjeeling Sikkim Trek",
+              navigateTo: "darjeeling-sikkim-trek",
             },
           ],
         },
         {
           id: 2,
-          text: "Surgery Department",
+          text: "Mountaineering",
           navigateTo: "surgery-department",
-          childLink: [
-            {
-              id: 0,
-              text: "General Surgery",
-              navigateTo: "general-surgery",
-            },
-            {
-              id: 1,
-              text: "GI Surgery",
-              navigateTo: "gi-surgery",
-            },
-            {
-              id: 2,
-              text: "Paediatrics Surgery",
-              navigateTo: "paediatrics-surgery",
-            },
-          ],
-        },
-        {
-          id: 3,
-          text: "Urosurgery Department",
-          navigateTo: "urosurgery-department",
-        },
-        {
-          id: 4,
-          text: "Renal Transplant Surgery",
-          navigateTo: "renal-transplant-surgery",
-        },
-        {
-          id: 5,
-          text: "Neurosurgery Department",
-          navigateTo: "Neurosurgery-Department",
-        },
-        {
-          id: 6,
-          text: "Obstetrics / Gynaecology Department",
-          navigateTo: "obstetrics-gynaecology-department",
-        },
-        {
-          id: 7,
-          text: "Orthopedics Department",
-          navigateTo: "orthopedics-department",
-        },
-        {
-          id: 8,
-          text: "Emergency Department",
-          navigateTo: "emergency-department",
+          childLink: [],
         },
         {
           id: 9,
-          text: "Paediatrics Department",
+          text: "Expedition",
           navigateTo: "paediatrics-department",
-          childLink: [
-            {
-              id: 0,
-              text: "General Paediatrics",
-              navigateTo: "general-paediatrics",
-            },
-            {
-              id: 1,
-              text: "Pulmonology",
-              navigateTo: "pulmonology",
-            },
-            {
-              id: 2,
-              text: "Cardiology",
-              navigateTo: "cardiology",
-            },
-            {
-              id: 3,
-              text: "Gastroenterology",
-              navigateTo: "gastroenterology",
-            },
-            {
-              id: 4,
-              text: "Nepharology",
-              navigateTo: "nepharology",
-            },
-            {
-              id: 5,
-              text: "Neonatology",
-              navigateTo: "neonatology",
-            },
-          ],
-        },
-        {
-          id: 10,
-          text: "Otorhinolaryncology (ENT) Department",
-          navigateTo: "otorhinolaryncology",
-        },
-        {
-          id: 11,
-          text: "Ophthalmology (EYE) Department",
-          navigateTo: "ophthalmology",
+          childLink: [],
         },
         {
           id: 12,
-          text: "Community Medicine Department",
+          text: "Adventure Activitiess",
           navigateTo: "community-medicine",
-          childLink: [
-            {
-              id: 0,
-              text: "Immunization",
-              navigateTo: "immunization",
-            },
-            {
-              id: 1,
-              text: "DOTS",
-              navigateTo: "dots",
-            },
-            {
-              id: 2,
-              text: "Counselling",
-              navigateTo: "counselling",
-            },
-          ],
-        },
-        {
-          id: 13,
-          text: "Oncology Unit",
-          navigateTo: "oncology-unit",
-        },
-        {
-          id: 14,
-          text: "Dermatology Department",
-          navigateTo: "dermatology-department",
-        },
-        {
-          id: 15,
-          text: "Psychiatry Department",
-          navigateTo: "psychiatry-department",
-        },
-        {
-          id: 16,
-          text: "Radiology Department",
-          navigateTo: "radiology-department",
-          childLink: [
-            {
-              id: 0,
-              text: "Ultrasound",
-              navigateTo: "ultrasound",
-            },
-          ],
+          childLink: [],
         },
       ],
     },
     {
       id: 3,
-      title: "Services",
+      title: "Outbounds",
       navigateTo: "/services",
       subLink: [
         {
           id: 0,
-          text: "Medical & Super Speciality Services",
+          text: "Dubai",
           navigateTo: "medical-and-super-speciality-services",
           childLink: [
             {
               id: 0,
-              text: "Internal Medicine",
-              navigateTo: "internal-medicine",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
             {
               id: 1,
-              text: "Psychiatry (Mental Health)",
-              navigateTo: "psychiatry",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
             {
               id: 2,
-              text: "Gastroenterology",
-              navigateTo: "gastroenterology",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
             {
               id: 3,
-              text: "Paediatric & Neonatology",
-              navigateTo: "paediatric-and-neonatology",
-            },
-            {
-              id: 4,
-              text: "Dermatology (Skin with Laser Service)",
-              navigateTo: "dermatology",
-            },
-            {
-              id: 5,
-              text: "24 Hours Emergency",
-              navigateTo: "emergency",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
           ],
         },
         {
           id: 1,
-          text: "Supportive Services",
+          text: "Cambodia",
           navigateTo: "supportive-services",
           childLink: [
             {
               id: 0,
-              text: "Pathology & Laboratory Service (24 Hours) (USFDA & WHO approved equipment",
-              navigateTo: "pathology-laboratory-service",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
             {
               id: 1,
-              text: "Radiology & Imaging (24 Hours)",
-              navigateTo: "radiology-imaging",
-            },
-            {
-              id: 2,
-              text: "Physiotherapy",
-              navigateTo: "physiotherapy",
-            },
-            {
-              id: 3,
-              text: "Dietician Service",
-              navigateTo: "dietician-service",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
           ],
         },
@@ -613,176 +480,208 @@ Header.defaultProps = {
           childLink: [
             {
               id: 0,
-              text: "General Surgery",
-              navigateTo: "general surgery",
-            },
-            {
-              id: 1,
-              text: "Ophthalmology",
-              navigateTo: "ophthalmology",
-            },
-            {
-              id: 2,
-              text: "Obstetrics, Gynaecology & Family Planning",
-              navigateTo: "obstetrics-gynaecology",
-            },
-            {
-              id: 3,
-              text: "Orthopaedic Surgery",
-              navigateTo: "orthopaedic-surgery",
-            },
-            {
-              id: 4,
-              text: "ENT",
-              navigateTo: "ent",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
           ],
         },
         {
           id: 3,
-          text: "Dental",
+          text: "Thailand",
           navigateTo: "dental",
           childLink: [
             {
               id: 0,
-              text: "All Services from College of Dental Science & Hospital",
-              navigateTo: "all-services-from-college",
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 1,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 2,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 3,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
             },
           ],
         },
         {
           id: 4,
-          text: "OPD",
-          navigateTo: "opd",
+          text: "Indonesia",
+          navigateTo: "dental",
+          childLink: [
+            {
+              id: 0,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 1,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 2,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 3,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+          ],
         },
         {
           id: 5,
-          text: "EHS Service",
-          navigateTo: "ehs-service",
+          text: "Colors Of Europe",
+          navigateTo: "dental",
+          childLink: [
+            {
+              id: 0,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 1,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 2,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 3,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+          ],
+        },
+        {
+          id: 6,
+          text: "Japan",
+          navigateTo: "dental",
+          childLink: [],
+        },
+        {
+          id: 7,
+          text: "Azerbaijan",
+          navigateTo: "dental",
+          childLink: [
+            {
+              id: 0,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 1,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 2,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+            {
+              id: 3,
+              text: "Dubai Land of Dreams",
+              navigateTo: "dubai-land-of-dreams",
+            },
+          ],
+        },
+        {
+          id: 8,
+          text: "Korea",
+          navigateTo: "dental",
+          childLink: [],
+        },
+        {
+          id: 8,
+          text: "Malaysia",
+          navigateTo: "dental",
+          childLink: [],
         },
       ],
     },
     {
-      id: 4,
-      title: "Activities",
-      navigateTo: "activities",
-    },
-    {
-      id: 5,
-      title: "Research",
-      navigateTo: "research",
-    },
-    {
       id: 6,
-      title: "Academics",
+      title: "More Links",
       navigateTo: "/academics",
       subLink: [
         {
           id: 0,
-          text: "Academic Programs",
+          text: "Travel Info",
           navigateTo: "academic-programs",
-          childLink: [
-            {
-              id: 0,
-              text: "Medical Program",
-              navigateTo: "medical-program",
-            },
-            {
-              id: 1,
-              text: "Dental Program",
-              navigateTo: "dental-program",
-            },
-            {
-              id: 2,
-              text: "Paramedical Program",
-              navigateTo: "paramedical-program",
-            },
-            {
-              id: 3,
-              text: "Nursing Program",
-              navigateTo: "nursing-program",
-            },
-          ],
         },
         {
           id: 1,
-          text: "Faculty",
+          text: "Our Gallery",
           navigateTo: "faculty",
-          childLink: [
-            {
-              id: 0,
-              text: "MBBS Program",
-              navigateTo: "mbbs-program",
-            },
-            {
-              id: 1,
-              text: "BSC Nursing",
-              navigateTo: "bsc-nursing",
-            },
-            {
-              id: 2,
-              text: "PG Program",
-              navigateTo: "pg-program",
-            },
-            {
-              id: 3,
-              text: "BDS Program",
-              navigateTo: "bds-program",
-            },
-          ],
         },
         {
           id: 2,
-          text: "Facilities & Services",
+          text: "About Us",
+          navigateTo: "facilities-and-services",
+        },
+        {
+          id: 3,
+          text: "FAQ",
           navigateTo: "facilities-and-services",
           childLink: [
             {
               id: 0,
-              text: "Hostels",
-              navigateTo: "hostels",
+              text: "What is Question?",
+              navigateTo: "This is Answer.",
             },
             {
               id: 1,
-              text: "Library",
-              navigateTo: "library",
+              text: "What is Question?",
+              navigateTo: "This is Answer.",
             },
             {
               id: 2,
-              text: "Auditorium",
-              navigateTo: "auditorium",
-            },
-            {
-              id: 3,
-              text: "Canteen",
-              navigateTo: "canteen",
-            },
-            {
-              id: 4,
-              text: "Sports & Recreation",
-              navigateTo: "sports-and-recreation",
-            },
-            {
-              id: 5,
-              text: "Transportation",
-              navigateTo: "transportation",
-            },
-            {
-              id: 6,
-              text: "Banking",
-              navigateTo: "banking",
+              text: "What is Question?",
+              navigateTo: "This is Answer.",
             },
           ],
         },
+        {
+          id: 4,
+          text: "Blog",
+          navigateTo: "facilities-and-services",
+          childLink: [
+            {
+              id: 1,
+              text: "Test 1",
+              navigateTo: "This is Test 1.",
+            },
+            {
+              id: 2,
+              text: "Test 2",
+              navigateTo: "This is Test 2.",
+            },
+          ],
+        },
+        {
+          id: 5,
+          text: "Contact",
+          navigateTo: "facilities-and-services",
+        },
       ],
     },
-    {
-      id: 7,
-      title: "Journal",
-    },
-    {
-      id: 8,
-      title: "Contact Us",
-      navigateTo: "contact-us",
-    },
+    // {
+    //   id: 7,
+    //   title: "Journal",
+    // },
   ],
 };

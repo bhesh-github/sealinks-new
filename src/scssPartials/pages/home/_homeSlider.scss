@@ -1,89 +1,125 @@
-.home-silder-comp {
-  position: relative;
-  width: 100%;
-  // height: 578px;
-  display: flex;
-  background-color: rgb(253, 251, 247);
-
-  // .slider-view {
-  //   width: 100%;
-  //   height: 100%;
-  // .slider-img {
-  //   background-color: green;
-  //   width: 100vw;
-  //   height: 100%;
-  // }
-  // }
-  // .slide-btns-wrapper {
-  //   position: absolute;
-  //   z-index: 1;
-  //   bottom: 1em;
-  //   left: 50%;
-  //   transform: translate(-50%);
-  //   display: flex;
-  //   gap: 0.6em;
-  //   .slide-btn {
-  //     cursor: pointer;
-  //     width: 18px;
-  //     height: 18px;
-  //     border-radius: 50px;
-  //     background: #1f2b6c;
-  //   }
-  //   .active-slide-btn {
-  //     background: #bfd2f8;
-  //   }
-  // }
+.carousel .control-dots {
+  // display: none;
 }
-
-.react-responsive-carousel {
+.css-aq8pb7-MuiSvgIcon-root {
+  margin-top: -100px;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  gap: 1em;
+  margin-left: 0.5em;
+}
+.css-aq8pb7-MuiSvgIcon-root {
+  fill: transparent !important;
+  font-size: 1.5rem;
+  font-size: 15px;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 16.5px !important;
+  height: 16.5px !important;
+}
+.css-8ucetn-MuiButtonBase-root-MuiIconButton-root {
+  color: #fff !important;
+}
+.css-bbreus-MuiButtonBase-root-MuiIconButton-root:hover {
+  color: #fff !important;
+}
+// --------------------------------------------
+.carousel-wrapper {
   width: 100%;
-  // height: 578px;
-  .slider-img {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    max-height: 578px;
-  }
-  .dots-indicator {
-    margin-top: -2em;
-    z-index: 99;
-    display: flex !important;
-    justify-content: center;
-    gap: 10px;
-    // margin: 0 5px;
-    // width: 18px;
-    // height: 18px;
-    // border-radius: 50px;
-    // display: inline-block;
-    list-style-type: none;
-    li {
-      width: 18px;
-      height: 18px;
-      border-radius: 50px;
-      display: inline-block;
-      background-color: $primaryAccentBlue;
-      button {
-        cursor: pointer;
+  // height: 455px;
+  height: 555px;
+  // background-color: red;
+  .carousel-comp {
+    .slide-wrapper {
+      position: relative;
+      width: auto;
+      height: auto;
+      .slide-img {
+        width: 100%;
+        // height: 455px;
+        height: 555px;
+        background-position: center;
+        background-size: cover;
+      }
+      .dark-overlay {
+        position: absolute;
+        z-index: 1;
         width: 100%;
         height: 100%;
-        background-color: transparent;
-        color: transparent;
-        border: none;
+        background-color: rgba(0, 0, 0, 0.285);
       }
     }
-    li.carousel-dots-active {
-      background-color: $primaryDarkBlue;
-    }
   }
-  @media screen and (max-width: 450px) {
-    .dots-indicator {
-      li {
-        width: 14px;
-        height: 14px;
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    // transform: translate(-50%, -42%);
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.187);
+    .main-caption {
+      font-size: 60px;
+      font-weight: 800;
+    }
+    .input-wrapper {
+      position: relative;
+      .location-icon {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translate(0, -50%);
+        left: 1.8em;
+        width: 39px;
+        height: 39px;
+        color: grey;
+        width: 30px;
+        height: 30px;
+      }
+      .search-input {
+        width: 650px;
+        height: 70px;
+        border-radius: 50px 50px 50px 50px;
+        border: none;
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.187);
+        padding: 0px 95px 0px 80px;
+        font-size: 17px;
+        &::placeholder {
+          color: #000;
+          font-size: 17px;
+        }
+      }
+      .search-icon-wrapper {
+        background-color: $primaryPeru;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 1.8em;
+        width: 39px;
+        height: 39px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-icon {
+          color: #fff;
+          // width: 50px;
+          // height: 50px;
+          // padding: 3px;
+
+          width: 18px;
+          height: 18px;
+        }
       }
     }
   }
