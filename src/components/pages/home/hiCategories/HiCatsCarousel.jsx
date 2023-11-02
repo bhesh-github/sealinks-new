@@ -65,11 +65,7 @@ import Carousel from "better-react-carousel";
 const InboundBetterCarousel = ({ catsCards }) => {
   return (
     <div className="hi-cats-carousel">
-      <Carousel
-        cols={5}
-        rows={1}
-        gap={27}
-      >
+      <Carousel cols={5} rows={1} gap={27} slidesToSlide='1'>
         {catsCards && catsCards}
       </Carousel>
     </div>
