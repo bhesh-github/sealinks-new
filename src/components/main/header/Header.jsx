@@ -126,6 +126,9 @@ const Header = ({ navItems }) => {
                                     style={{
                                       backgroundColor: `${activeItem}`,
                                     }}
+                                    onClick={() => {
+                                      !childLink && handleDropdownDisplay();
+                                    }}
                                   >
                                     <div className="menu-item">{text}</div>
                                     {childLink && (
@@ -144,7 +147,13 @@ const Header = ({ navItems }) => {
                                   navigateTo = "",
                                 } = item;
                                 return (
-                                  <div className="content-item" key={id}>
+                                  <div
+                                    className="content-item"
+                                    key={id}
+                                    onClick={() => {
+                                      handleDropdownDisplay();
+                                    }}
+                                  >
                                     {text}
                                   </div>
                                 );
@@ -226,6 +235,9 @@ const Header = ({ navItems }) => {
                                     style={{
                                       backgroundColor: `${activeItem}`,
                                     }}
+                                    onClick={() => {
+                                      !childLink && handleDropdownDisplay();
+                                    }}
                                   >
                                     <div className="menu-item">{text}</div>
                                     {childLink && (
@@ -244,7 +256,13 @@ const Header = ({ navItems }) => {
                                   navigateTo = "",
                                 } = item;
                                 return (
-                                  <div className="content-item" key={id}>
+                                  <div
+                                    className="content-item"
+                                    key={id}
+                                    onClick={() => {
+                                      handleDropdownDisplay();
+                                    }}
+                                  >
                                     {text}
                                   </div>
                                 );
@@ -270,7 +288,6 @@ const Header = ({ navItems }) => {
                                 } = item;
                                 const activeItem =
                                   idx === activeMenuItem ? "#f1f1f1" : "";
-
                                 return (
                                   <div
                                     className="menu-item-wrapper"
@@ -281,6 +298,9 @@ const Header = ({ navItems }) => {
                                     }}
                                     style={{
                                       backgroundColor: `${activeItem}`,
+                                    }}
+                                    onClick={() => {
+                                      !childLink && handleDropdownDisplay();
                                     }}
                                   >
                                     <div className="menu-item">{text}</div>
@@ -296,7 +316,13 @@ const Header = ({ navItems }) => {
                               rightContents.map((item) => {
                                 const { id = "", text = "" } = item;
                                 return (
-                                  <div className="content-item" key={id}>
+                                  <div
+                                    className="content-item"
+                                    key={id}
+                                    onClick={() => {
+                                      handleDropdownDisplay();
+                                    }}
+                                  >
                                     {text}
                                   </div>
                                 );
